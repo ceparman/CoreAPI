@@ -1,77 +1,81 @@
 Message Code	Category	Interpretation	Resolution
-SDK_LOGIN_FAILED	Authentication	User name or password is incorrect	
-SDK_TRANSACTION_LIMIT	Authentication	Attempted to create more transactions then allowed per minute.  This value is calculated by the number of API sessions allowed multiplied by 30	Ensure the number of transactions per minute does not exceed maximum allowed
-SDK_LOGIN	Authentication	Information regarding login	
-LICENSE	Authentication	Information regarding license	
+SDK_LOGIN_FAILED	Authentication	User name or password is incorrect
+SDK_TRANSACTION_LIMIT	Authentication	Attempted to create more transactions then allowed per minute.??This value is calculated by the number of API sessions allowed multiplied by 30	Ensure the number of transactions per minute does not exceed maximum allowed
+SDK_LOGIN	Authentication	Information regarding login
+LICENSE	Authentication	Information regarding license
 MAX_SESSIONS	Authentication	Error can occur if a login attempt by the client causes the current number of sessions to exceed the number of concurrent sessions purchased	Reduce the number of active sessions
-PROJECT_LEVEL_SECURITY	Authentication	Information regarding authorization by project	
-ACCESS_LEVEL_SECURITY	Authentication	Information regarding authorization by access level	
-ENTITY_TYPE_NOT_FOUND	Configuration	Entity type reference could not be resolved to an existing entity type	Check the correct entity type name or id is being passed in.  Make sure the user is authorized to view that entity type.
-ENTITY_TYPE_ATTRIBUTE	Configuration	Information around an entity typeattribute	
-ENTITY_TYPE_FOUND	Configuration	Entity type reference successfully mapped to an entity type	
-ENTITY_TYPE	Configuration	Information around an entity type	
-ENTITY_TYPE_ASSOCIATION	Configuration	Information around an entity type'sassociations	
-SUPER_TYPE_NOT_FOUND	Configuration	Super type reference could not be resolved to an existing super type	Check the correct super type name is being passed in.  Make sure the user is authorized to view that super type.
-SUPER_TYPE	Configuration	Information around a super type	
-ATTRIBUTE	Configuration	Information around an attribute	
-ATTRIBUTE_NOT_FOUND	Configuration	Attribute reference could not be resolved to an existing attribute	The attribute name being passed in should be uppercase with non-alpha numeric characters replaced by underscore (_)
-DATA_TYPE	Configuration	Information around a data type	
-DATA_TYPE_NOT_FOUND	Configuration	Data type reference could not be resolved to an existing data type	Check the correct data type name is being passed in
-CELL_GET	Container	Information during retrieval of a container cell	
-CELL_NOT_FOUND	Container	Cell reference could not be resolved to an existing cell	A cell can be retrieved by cellId or containerReference and wellNum or by containerReference alone if it is a single well container. SeeContainer JSON Requests and Responses for details. Check that the correct information is passed.
-UNIT_INVALID	Container	Invalid unit (for amount or concentration) that is not supported by the LIMS. See Available Units For Containers for list of supported units.	Modify unit to a valid unit supported by the LIMS. Convert amount or concentration values as appropriate to maintain data accuracy.
-CONTAINER_TRANSFER	Container	Information during transfer of contents from or to a container	
+PROJECT_LEVEL_SECURITY	Authentication	Information regarding?authorization by project
+ACCESS_LEVEL_SECURITY	Authentication	Information regarding?authorization by access level
+ENTITY_TYPE_NOT_FOUND	Configuration	Entity type reference could not be resolved to an existing?entity type	Check the correct entity type name or id is being passed in.??Make sure the user is authorized to view that entity type.
+ENTITY_TYPE_ATTRIBUTE	Configuration	Information around an entity typeattribute
+ENTITY_TYPE_FOUND	Configuration	Entity type reference successfully mapped to an?entity type
+ENTITY_TYPE	Configuration	Information around an?entity type
+ENTITY_TYPE_ASSOCIATION	Configuration	Information around an entity type'sassociations
+SUPER_TYPE_NOT_FOUND	Configuration	Super type reference could not be resolved to an existing?super type	Check the correct super type name is being passed in.??Make sure the user is authorized to view that super type.
+SUPER_TYPE	Configuration	Information around a?super type
+ATTRIBUTE	Configuration	Information around an?attribute
+ATTRIBUTE_NOT_FOUND	Configuration	Attribute reference could not be resolved to an existing?attribute	The attribute name being passed in should be uppercase with non-alpha numeric characters replaced by underscore (_)
+DATA_TYPE	Configuration	Information around a?data type
+DATA_TYPE_NOT_FOUND	Configuration	Data type reference could not be resolved to an existing?data type	Check the correct data type name is being passed in
+CELL_GET	Container	Information during retrieval of a container cell
+CELL_NOT_FOUND	Container	Cell reference could not be resolved to an existing cell	A cell can be retrieved by cellId or containerReference and wellNum or by containerReference alone if it is a single well container.?SeeContainer JSON Requests and Responses?for details. Check that the correct information is passed.
+UNIT_INVALID	Container	Invalid unit (for amount or concentration) that is not supported by the LIMS. See?Available Units For Containers?for list of supported units.	Modify unit to a valid unit supported by the LIMS. Convert amount or concentration values as appropriate to maintain data accuracy.
+CONTAINER_TRANSFER	Container	Information during?transfer?of contents from or to a container
 CONTAINER_NOT_FOUND	Container	Container reference could not be resolved to an existing container	Check reference parameters
-CONTAINER_GET	Container	Information during retrieval of a container	
-PLATE_MAP_NOT_FOUND	Container	Plate map reference could not be resolved to an existing plate map	Check reference parameters
-ENTITY_CREATE	Entity	Information during creation of an entity	
-BULK_ENTITY_CREATE	Entity	Information during bulk creation of entities	
-ENTITY_GET	Entity	Information during retrieval of an entity	
-ENTITY_UPDATE	Entity	Information during update of an entity	
-ENTITY_ASSOCIATION	Entity	Information during association of an entity	
-ENTITY_DISSOCIATION	Entity	Information during dissociation of an entity	
+CONTAINER_GET	Container	Information during retrieval of a container
+PLATE_MAP_NOT_FOUND	Container	Plate map reference could not be resolved to an existing?plate map	Check reference parameters
+ENTITY_CREATE	Entity	Information during creation of an entity
+BULK_ENTITY_CREATE	Entity	Information during bulk creation of entities
+ENTITY_GET	Entity	Information during retrieval of an entity
+ENTITY_UPDATE	Entity	Information during update of an entity
+ENTITY_ASSOCIATION	Entity	Information during association of an entity
+ENTITY_DISSOCIATION	Entity	Information during dissociation of an entity
 ENTITY_NOT_FOUND	Entity	Entity reference could not be resolved to an existing entity	Check reference parameters
 NAME_EXISTS	Entity	Name already exists in the system	Supply a unique name or leave empty so a unique name can be supplied by the LIMS. It may also be a good idea to check the existing record to make sure that the new record is not a duplicate of an existing one.
-BARCODE_EXISTS	Entity	Barcode already exists in the system	Supply a unique barcode or leave empty so a unique barcode can be supplied.  It may also be a good idea to check the existing record to make sure that the new record is not a duplicate of an existing one.
-ENTITY_LOCATION	Entity	Information during placement of entity into a location	
-ENTITY	Entity	General information on an entity	
-PREP_VALUES_FOR_UPDATE	Entity	Message around updating attribute values	
-ASSOCIATION_MANDATORY	Entity	Error during create/update of an entity because required association was not supplied	Supply value for mandatory association or modify configuration to not require association
-NAME_TEMPLATE	Entity	Messages around applying a name template	
-RULE_EXCEPTION	Entity	Rule did not pass	Check message for information regarding what rule(s) did not pass and correct the values in the record or modify the rule
-PUBLISH	Experiment	Information during experimentpublish	
-UNPUBLISH	Experiment	Information during experimentunpublish	
-EXPERIMENT_CONTAINER	Experiment	Information on experiment container processing	
-EXPERIMENT_SAMPLE	Experiment	Information on experiment sample processing	
-PARAMETER_MISSING	General	Occurs if the request being sent is missing a parameter that is required to fulfill the request	Add the missing parameter.  Use the /coresdk/tools.html page (REST Tool) to inspect the template and gain information on required parameters.
-GENERAL	General	General message	
-EVENT_CREATE	General	Information around event creation	
-SDK_VALIDATION_FAILED	General	Validation of the request has failed	Validation of the incoming request failed.  Use the /coresdk/tools.html page  (REST Tool) to inspect the template and gain information on required parameters
+BARCODE_EXISTS	Entity	Barcode already exists in the system	Supply a unique barcode or leave empty so a unique barcode can be supplied. ?It may also be a good idea to check the existing record to make sure that the new record is not a duplicate of an existing one.
+ENTITY_LOCATION	Entity	Information during placement of entity into a?location
+ENTITY	Entity	General information on an entity
+PREP_VALUES_FOR_UPDATE	Entity	Message around updating attribute values
+ASSOCIATION_MANDATORY	Entity	Error during create/update of an entity because required association was not supplied	Supply value for mandatory association or?modify configuration?to not require association
+NAME_TEMPLATE	Entity	Messages around applying a?name template
+RULE_EXCEPTION	Entity	Rule?did not pass	Check message for information regarding what rule(s) did not pass and correct the values in the record or modify the rule
+PUBLISH	Experiment	Information during experimentpublish
+UNPUBLISH	Experiment	Information during experimentunpublish
+EXPERIMENT_CONTAINER	Experiment	Information on experiment container processing
+EXPERIMENT_SAMPLE	Experiment	Information on experiment sample processing
+PARAMETER_MISSING	General	Occurs if the request being sent is missing a parameter that is required to fulfill the request	Add the missing parameter.??Use the /coresdk/tools.html page (REST Tool) to inspect the template and gain information on required parameters.
+GENERAL	General	General message
+EVENT_CREATE	General	Information around event creation
+SDK_VALIDATION_FAILED	General	Validation of the request has failed	Validation of the incoming request failed.??Use the /coresdk/tools.html page ?(REST Tool) to inspect the template and gain information on required parameters
 SDK_CREATE_TRANSFER_MAP_FAILED	General	Internal error related to serialization of the request	Check additional messages for action
 SDK_PROCESS_REQUEST_FAILED	General	Internal error related to processing of the request	Check additional messages for action
 SDK_GET_RESPONSE_FAILED	General		Check additional messages for action
-SDK_IMPLEMENTATION_NOT_FOUND	General	Business logic for request not implemented	
-SDK_JSON_PARSE_ERROR	General	Data format error	
-SDK_CONFIG_OPTION	General		
-SDK_CONNECTION_ERROR	General	Error connecting to database	
-SDK	General	General SDK message	
-PROTOCOL	General	General protocol message	
+SDK_IMPLEMENTATION_NOT_FOUND	General	Business logic for request not implemented
+SDK_JSON_PARSE_ERROR	General	Data format error
+SDK_CONFIG_OPTION	General
+SDK_CONNECTION_ERROR	General	Error connecting to database
+SDK	General	General SDK message
+PROTOCOL	General	General protocol message
 PROTOCOL_NOT_FOUND	General	Protocol reference could not be resolved to a protocol	Check reference parameters
 LOCATION_NOT_FOUND	Location	Location reference could not be resolved to an existing location	Check reference parameters
-LOCATION_GET	Location	Message around location retrieval	
-LOCATION_CHILD_CREATE	Location	Message around creating child locations	
-QUERY	Query	Message around query	
-TRANSACTION_COMPLETED	Transaction	Transaction has completed	
+LOCATION_GET	Location	Message around location retrieval
+LOCATION_CHILD_CREATE	Location	Message around?creating child locations
+QUERY	Query	Message around query
+TRANSACTION_COMPLETED	Transaction	Transaction has completed
 TRANSACTION_ROLLED_BACK	Transaction	Transaction has been rolled back. New records or updates were not committed to the database.	Check error messages to find cause of rollback. Correct records and resubmit.
-TRIGGER	Trigger	Messages around trigger execution	
-QUEUE_MEMBER_GET	Workflow	Messages around queue member retrieval	
-QUEUE_MEMBER_UPDATE	Workflow	Messages around update of queue member	
-WORKFLOW	Workflow	Messages around workflows	
-WORKFLOW_GET	Workflow	Messages around retrieving aworkflow	
-WORKFLOW_NOT_FOUND	Workflow	Workflow reference could not be resolved to an existing workflow	Check reference parameters
-CRITERIA	Workflow	Messages around criteria. SeeDefining Workflow Steps for details on workflow criteria.	
-CRITERIA_GET	Workflow	Messages around retrieving a criteria. See Defining Workflow Stepsfor details on workflow criteria.	
-CRITERIA_NOT_FOUND	Workflow	Criteria reference could not be resolved to an existing criteria. SeeDefining Workflow Steps for details on workflow criteria.	Check reference parameters
-ACTION	Workflow	Messages around action. SeeDefining Workflow Steps for details on workflow actions.	
-ACTION_GET	Workflow	Messages around retrieving an action. See Defining Workflow Stepsfor details on workflow actions.	
-ACTION_NOT_FOUND	Workflow	Action reference could not be resolved to an existing action. SeeDefining Workflow Steps for details on workflow actions.	Check reference parameters
+TRIGGER	Trigger	Messages around?trigger execution
+QUEUE_MEMBER_GET	Workflow	Messages around?queue member retrieval
+QUEUE_MEMBER_UPDATE	Workflow	Messages around?update of queue member
+WORKFLOW	Workflow	Messages around?workflows
+WORKFLOW_GET	Workflow	Messages around retrieving aworkflow
+WORKFLOW_NOT_FOUND	Workflow	Workflow reference could not be resolved to an existing?workflow	Check reference parameters
+CRITERIA	Workflow	Messages around criteria. SeeDefining Workflow Steps?for details on workflow criteria.
+CRITERIA_GET	Workflow	Messages around retrieving a criteria. See?Defining Workflow Stepsfor details on workflow criteria.
+CRITERIA_NOT_FOUND	Workflow	Criteria reference could not be resolved to an existing criteria. SeeDefining Workflow Steps?for details on workflow criteria.	Check reference parameters
+ACTION	Workflow	Messages around action. SeeDefining Workflow Steps?for details on workflow actions.
+ACTION_GET	Workflow	Messages around retrieving an action. See?Defining Workflow Stepsfor details on workflow actions.
+ACTION_NOT_FOUND	Workflow	Action reference could not be resolved to an existing action. SeeDefining Workflow Steps?for details on workflow actions.	Check reference parameters\
+
+
+
+
