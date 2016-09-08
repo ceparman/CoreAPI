@@ -1,16 +1,20 @@
 
 context("Tests for getByBarcodeEntity")
 
+tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/account.json")
 
 
 
 test_that("get entity by entity and barcode values",
-          { source("testfiles/userAndEntity.R")
-            s<-CoreAPI::authBasic(coreUrl,user,pwd)
-            js<-s$sessionInfo$jessionid
-            item<- CoreAPI::getByBarcodeEntity(coreUrl,js,entityType,barcode)
+          {
+            source("testfiles/testEntityValues.R")
+            r<-CoreAPI::authBasic(tapi)
+
+            item<- CoreAPI::getByBarcodeEntity(r$coreApi,entityType,barcode)
             id<-item$entity$entityId
-            out<-CoreAPI::logOut(coreUrl,js)
+            out<-CoreAPI::logOut(r$coreApi)
             expect_equal(object=id,expected=sampleId)
            })
+
+
 

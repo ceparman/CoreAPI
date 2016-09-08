@@ -2,12 +2,12 @@
 #'
 #'\code{authBasic} authenticates to Core API
 #'
-#'@param coreUrl character string that is the url of LIMS
-#'@param user character string that is username
-#'@param pwd character string that is password
-#'@param account character string that is the account to log into for multi tenant systems
-#'@param useVerbose TRUE or FALSE to indicate if verbose options should be used in http POST
-#'@return returns a list $sessionInfo contains jsessionid and employeeid, $response contains the entire http response
+#'@param coreApi object of class coreApi that contains user, password,  baseURL and account(optional)
+#'@param useVerbose - Use verbose setting for HTTP commands
+#'@return { returns a list $coreApi which retuned passed coreApi object with  jsessionid, \cr
+#'            awselb and employeeid populated, $response contains the entire http response \cr
+#'         }
+#'
 #'@export
 #'@examples
 #'\dontrun{
@@ -19,22 +19,24 @@
 
 
 
-authBasic<-function(coreUrl,user,pwd,account=NULL,useVerbose=FALSE)
+authBasic<-function(coreApi,useVerbose=FALSE)
 
 {
 
-  if (is.null( account))
-      { request<-list(request=list(data=list(lims_userName = jsonlite::unbox(user),
-                                           lims_password=jsonlite::unbox(pwd)),typeParam =jsonlite::unbox("*"), sdkCmd =jsonlite::unbox("sdk-login")))
+  if (is.null( coreApi$account))
+      { request<-list(request=list(data=list(lims_userName = jsonlite::unbox(coreApi$user),
+                                           lims_password=jsonlite::unbox(coreApi$pwd)),
+                                          typeParam =jsonlite::unbox("*"), sdkCmd =jsonlite::unbox("sdk-login")))
 
-  } else  { accountObject<-list("entityID" = jsonlite::unbox(""), "barcode" = jsonlite::unbox(""),"name" = jsonlite::unbox(account))
+  } else  { accountObject<-list("entityID" = jsonlite::unbox(""), "barcode" = jsonlite::unbox(""),
+            "name" = jsonlite::unbox(coreApi$account))
 
-     request<-list(request=list(data=list(lims_userName = jsonlite::unbox(user),
-                                    lims_password=jsonlite::unbox(pwd),accountRef = accountObject),typeParam =jsonlite::unbox("*"), sdkCmd =jsonlite::unbox("sdk-login")))
+     request<-list(request=list(data=list(lims_userName = jsonlite::unbox(coreApi$user),
+                                    lims_password=jsonlite::unbox(coreApi$pwd),accountRef = accountObject),typeParam =jsonlite::unbox("*"), sdkCmd =jsonlite::unbox("sdk-login")))
 
   }
 
-   login_url<-paste(coreUrl,"/sdklogin",sep="")
+   login_url<-paste(coreApi$coreUrl,"/sdklogin",sep="")
 
    response<-httr::POST(login_url,body = request, encode="json",
                         httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
@@ -43,12 +45,12 @@ authBasic<-function(coreUrl,user,pwd,account=NULL,useVerbose=FALSE)
 
 getSession<-function(response){
 
-  #jessionid<-  httr::cookies(response)[which(httr::cookies(response)[,6] == "JSESSIONID"),7]
-  jessionid<-  httr::content(response)$response$data$jsessionid
+  #jsessionid<-  httr::cookies(response)[which(httr::cookies(response)[,6] == "JSESSIONID"),7]
+  jsessionid<-  httr::content(response)$response$data$jsessionid
   awselb<- httr::cookies(response)[which(httr::cookies(response)[,6] == "AWSELB"),7]
   if (length(awselb) == 0) {awselb <- NULL}
   employeeId<- httr::content(response)$response$data$ employeeId
-   list( jessionid = jessionid, awselb = awselb ,employeeId =employeeId)
+   list( jsessionid = jsessionid, awselb = awselb ,employeeId =employeeId)
 }
 
 if(httr::http_error(response)) {
@@ -63,9 +65,15 @@ stop(
 }
 
 
-session<-tryCatch(getSession(response), error = function(e) { list( "jessionid" = NULL, "employeeId" =  NULL )}
+session<-tryCatch(getSession(response), error = function(e) { list( "jsessionid" = NULL, "employeeId" =  NULL )}
           )
 
-list(sessionInfo=session,response=response)
+
+
+coreApi$jsessionId <-session$jsessionid
+coreApi$awselb <- session$awselb
+coreApi$employeeId <- session$employeeId
+
+list(coreApi=coreApi,response=response)
 
 }

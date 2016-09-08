@@ -1,8 +1,7 @@
 #' createEntity - Create a new instance of a entitiy.
 #'
 #' \code{createEntity} Creates a new entity instance.
-#' @param coreUrl character string that is the url of LIMS
-#' @param jessionid valid jesssionid as character string
+#' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string
 #' @param attributeValues atributes as a list of key-vlaues pairs
 #' @param locationId location ID for inital location as character string
@@ -27,7 +26,7 @@
 
 
 
-createEntity<-function (coreUrl,jessionid,entityType,attributeValues=NULL,
+createEntity<-function (coreApi,entityType,attributeValues=NULL,
                         locationId=NULL,projectIds=NULL,barcode=NULL,associations=NULL,useVerbose=FALSE)
 
 {
@@ -104,7 +103,7 @@ createEntity<-function (coreUrl,jessionid,entityType,attributeValues=NULL,
 
 
 
-  sdk_url<-paste(coreUrl,"/sdk",";jsessionid=",jessionid,sep="")
+  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
 
 
   response<-httr::POST(sdk_url,body = request, encode="json",
@@ -116,54 +115,3 @@ createEntity<-function (coreUrl,jessionid,entityType,attributeValues=NULL,
 }
 
 
-
-#
-# login<-CoreAPI::authBasic(coreUrl,user,pwd)
-#
-# jessionid<-login$sessionInfo$jessionid
-#
-# attributeValues<-list(SOURCE_LAB = "New York Medical Center",NUMERIC_VALUE = 5,REQUESTOR="CEP")
-#
-# entityType<-"PATIENT SAMPLE"
-#
-#
-# #response<-createEntity(coreUrl,jessionid,entityType,attributeValues,locationId=6185763, projectIds=6854513,associations=NULL,useVerbose=FALSE)
-#
-#
-# response<-createEntity(coreUrl,jessionid,"PATIENT SAMPLE",attributeValues,locationId=6185763, projectIds="5000005,6854513"
-#                        ,associations=NULL,useVerbose=FALSE)
-#
-#
-#
-#
-# response<-createEntity(coreUrl,jessionid,"SAMPLEUB",attributeValues,locationId=6185763, projectIds="5000005,6854513"
-#                        ,associations=NULL,useVerbose=FALSE)
-#
-#
-# response<-createEntity(coreUrl,jessionid,"SAMPLEUB",attributeValues,locationId=6185763, projectIds="5000005,6854513",
-#                        barcode="GGHHDHEG",associations=NULL,useVerbose=FALSE)
-#
-#
-#
-# response<-createEntity(coreUrl,jessionid,"SAMPLEUB",attributeValues,locationId=6185763, projectIds="5000005,6854513",
-#                        barcode="GGHHHEG",associations=NULL,useVerbose=FALSE)
-#
-#
-#
-# associations<-list(SAMPLEENZYME=data.frame(name="",entitiyId="",barcode="ENZ1"))
-#
-# jsonlite::toJSON(associations,pretty = TRUE)
-#
-# response<-createEntity(coreUrl,jessionid,"SAMPLEUB",attributeValues,associations=associations,
-#                        locationId=6185763, projectIds="5000005,6854513",useVerbose=FALSE)
-#
-# response<- CoreAPI::authBasic(coreUrl,user,pwd)
-# js<-response$sessionInfo$jessionid
-#  newitem<-createEntity(coreUrl,jessionid,entityType)
-#  jsonlite::toJSON(item$item)
-#
-#
-#
-#   logOut(coreUrl,js,postVerbose=FALSE )
-#
-#

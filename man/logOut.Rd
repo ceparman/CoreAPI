@@ -4,12 +4,10 @@
 \alias{logOut}
 \title{Log user out of the LIMS}
 \usage{
-logOut(coreUrl, jsessionid, useVerbose = FALSE)
+logOut(coreApi, useVerbose = FALSE)
 }
 \arguments{
-\item{coreUrl}{base url of LIMS}
-
-\item{jsessionid}{jsessionid to log out of username}
+\item{coreApi}{coreApi object returned during log in}
 
 \item{useVerbose}{use verbose option for debuggin in http POST}
 }
@@ -24,9 +22,9 @@ returns list with $success = TRUE when sucessful, $response contains the entire 
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreUrl,user,pwd)
-js<-response$sessionInfo$jessionid
-logOut(coreUrl,js,postVerbose=FALSE )}
+response<- CoreAPI::authBasic(coreapi,pwd)
+
+logOut(response$coreApi,useVerbose=FALSE )}
 }
 \author{
 Craig Parman

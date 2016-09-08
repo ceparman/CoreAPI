@@ -1,8 +1,7 @@
 #' updateEntity - Create a new instance of a entitiy.
 #'
 #' \code{updateEntity} Creates a new entity instance.
-#' @param coreUrl character string that is the url of LIMS
-#' @param jessionid valid jesssionid as character string
+#' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string
 #' @param barcode User provided barcode as a character string
 #' @param attributeValues atributes as a list of key-vlaues pairs
@@ -14,9 +13,9 @@
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreUrl,user,pwd)
-#' jessionid<-response$sessionInfo$jessionid
-#' newitem<-CoreAPI::updateEntity(coreUrl,jessionid,entityType,barcode)
+#' response<- CoreAPI::authBasic(coreApi)
+#'
+#' newitem<-CoreAPI::updateEntity(response$coreapi,entityType,barcode)
 #' jsonlite::toJSON(newitem$item)
 #' logOut(coreUrl,js,postVerbose=FALSE )
 #' }
@@ -27,7 +26,7 @@
 
 
 
-updateEntity<-function (coreUrl,jessionid,entityType,barcode,attributeValues=NULL,
+updateEntity<-function (coreApi,entityType,barcode,attributeValues=NULL,
                         locationId=NULL,projectIds=NULL,associations=NULL,useVerbose=FALSE)
 
 {
@@ -96,7 +95,7 @@ updateEntity<-function (coreUrl,jessionid,entityType,barcode,attributeValues=NUL
 
 
 
-  request<-list(request=list(
+  request<-list(request=list(sdkCmd=sdkCmd,data=data,typeParam =typeParam,
                              responseOptions=responseOptions,
                              logicOptions=logicOptions))
 
@@ -105,7 +104,7 @@ updateEntity<-function (coreUrl,jessionid,entityType,barcode,attributeValues=NUL
 
 
 
-  sdk_url<-paste(coreUrl,"/sdk",";jsessionid=",jessionid,sep="")
+  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
 
 
   response<-httr::POST(sdk_url,body = request, encode="json",

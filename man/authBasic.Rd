@@ -4,21 +4,17 @@
 \alias{authBasic}
 \title{Authenticates against the LIMS using basic authentication}
 \usage{
-authBasic(coreUrl, user, pwd, account = NULL, useVerbose = FALSE)
+authBasic(coreApi, useVerbose = FALSE)
 }
 \arguments{
-\item{coreUrl}{character string that is the url of LIMS}
+\item{coreApi}{object of class coreApi that contains user, password,  baseURL and account(optional)}
 
-\item{user}{character string that is username}
-
-\item{pwd}{character string that is password}
-
-\item{account}{character string that is the account to log into for multi tenant systems}
-
-\item{useVerbose}{TRUE or FALSE to indicate if verbose options should be used in http POST}
+\item{useVerbose}{- Use verbose setting for HTTP commands}
 }
 \value{
-returns a list $sessionInfo contains jsessionid and employeeid, $response contains the entire http response
+{ returns a list $coreApi which retuned passed coreApi object with  jsessionid, \cr
+           awselb and employeeid populated, $response contains the entire http response \cr
+        }
 }
 \description{
 \code{logOut} Logs in and create a jsession using a username and password..

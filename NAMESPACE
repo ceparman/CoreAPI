@@ -2,6 +2,7 @@
 
 export(attachFile)
 export(authBasic)
+export(coreAPI)
 export(createEntity)
 export(getByBarcodeEntity)
 export(logOut)

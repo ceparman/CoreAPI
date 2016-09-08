@@ -2,8 +2,7 @@
 #'
 #'\code{getByBarcodeEntity} get an entity from the LIMS by barcode and
 #'
-#'@param coreUrl character string that is the url of LIMS
-#'@param jsessionid valid jsessionid
+#'@param coreApi coreApi object with valid jsessionid
 #'@param entityType entity type to get
 #'@param barcode barcode of entity to get
 #'@param useVerbose TRUE or FALSE to indicate if verbose options should be used in http POST
@@ -21,7 +20,7 @@
 
 
 
-getByBarcodeEntity<-function (coreUrl,jsessionid,entityType,barcode,useVerbose=FALSE)
+getByBarcodeEntity<-function (coreApi,entityType,barcode,useVerbose=FALSE)
 
 {
 
@@ -35,7 +34,7 @@ getByBarcodeEntity<-function (coreUrl,jsessionid,entityType,barcode,useVerbose=F
                     ))
 
 
-      sdk_url<-paste(coreUrl,"/sdk",";jsessionid=",jsessionid,sep="")
+      sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jsessionId,sep="")
 
 
     response<-httr::POST(sdk_url,body = request, encode="json",

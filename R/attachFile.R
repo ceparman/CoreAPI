@@ -1,20 +1,19 @@
 #' attachFile - attaches a file to an entitiy or attribute.
 #'
 #' \code{attachFile} Creates a new entity instance.
-#' @param coreUrl character string that is the url of LIMS
-#' @param jessionid valid jesssionid as character string
+#' @param coreApi coreApi object with valid jsessionid
 #' @param barcode User provided barcode as a character string
 #' @param filename name to use for the attached file
-#' @param filepath path to the firl to attach
+#' @param filepath path to the file to attach
 #' @param targetAttributeName - if included the name if the attribute to attach the file to.  Must be in all caps.
 #' @param useVerbose Use verbose communitcaion for debuggins
 #' @export
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreUrl,user,pwd)
-#' jessionid<-response$sessionInfo$jessionid
-#' newitem<-CoreAPI::fileAttach(coreUrl,jessionid,entityType,barcodefilename,filepath,targetAttributeName="",useVerbose=FALSE)
+#' response<- CoreAPI::authBasic(coreApi)
+#'
+#' newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
 #' jsonlite::toJSON(newitem$item)
 #' logOut(coreUrl,js,postVerbose=FALSE )
 #' }
@@ -25,11 +24,25 @@
 
 
 
-attachFile<-function (coreUrl,jessionid,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
+attachFile<-function (coreApi,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
 
 {
 
   ##Notes
+
+
+  if(!file.exists(filepath)) {
+
+    stop(
+      {print("Unable to find file on local OS")
+        print( filepath)
+      },
+      call.=FALSE
+    )
+
+  }
+
+
 
 
   sdkCmd<-jsonlite::unbox("file-attach")
@@ -63,7 +76,7 @@ attachFile<-function (coreUrl,jessionid,barcode,filename,filepath,targetAttribut
 
 
 
-  sdk_url<-paste(coreUrl,"/sdk",";jsessionid=",jessionid,sep="")
+  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
 
 
   response<-httr::POST(sdk_url,body = request, encode="json",
@@ -72,6 +85,16 @@ attachFile<-function (coreUrl,jessionid,barcode,filename,filepath,targetAttribut
   response<-httr::POST(sdk_url,body = form, encode="multipart",
                        httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
 
+  if(httr::http_error(response)) {
+
+    stop(
+      {print("API call failed")
+        print( httr::http_status(response))
+      },
+      call.=FALSE
+    )
+
+  }
 
 
 
