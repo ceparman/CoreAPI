@@ -4,13 +4,10 @@
 \alias{getByBarcodeEntity}
 \title{Get an entity from the LIMS by barcode}
 \usage{
-getByBarcodeEntity(coreUrl, jsessionid, entityType, barcode,
-  useVerbose = FALSE)
+getByBarcodeEntity(coreApi, entityType, barcode, useVerbose = FALSE)
 }
 \arguments{
-\item{coreUrl}{character string that is the url of LIMS}
-
-\item{jsessionid}{valid jsessionid}
+\item{coreApi}{coreApi object with valid jsessionid}
 
 \item{entityType}{entity type to get}
 

@@ -4,14 +4,12 @@
 \alias{updateEntity}
 \title{updateEntity - Create a new instance of a entitiy.}
 \usage{
-updateEntity(coreUrl, jessionid, entityType, barcode, attributeValues = NULL,
+updateEntity(coreApi, entityType, barcode, attributeValues = NULL,
   locationId = NULL, projectIds = NULL, associations = NULL,
   useVerbose = FALSE)
 }
 \arguments{
-\item{coreUrl}{character string that is the url of LIMS}
-
-\item{jessionid}{valid jesssionid as character string}
+\item{coreApi}{coreApi object with valid jsessionid}
 
 \item{entityType}{entity type to get as character string}
 
@@ -38,9 +36,9 @@ RETURN returns a list $entity contains entity information, $response contains th
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreUrl,user,pwd)
-jessionid<-response$sessionInfo$jessionid
-newitem<-CoreAPI::updateEntity(coreUrl,jessionid,entityType,barcode)
+response<- CoreAPI::authBasic(coreApi)
+
+newitem<-CoreAPI::updateEntity(response$coreapi,entityType,barcode)
 jsonlite::toJSON(newitem$item)
 logOut(coreUrl,js,postVerbose=FALSE )
 }

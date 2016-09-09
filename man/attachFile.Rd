@@ -4,19 +4,17 @@
 \alias{attachFile}
 \title{attachFile - attaches a file to an entitiy or attribute.}
 \usage{
-attachFile(coreUrl, jessionid, barcode, filename, filepath,
-  targetAttributeName = "", useVerbose = FALSE)
+attachFile(coreApi, barcode, filename, filepath, targetAttributeName = "",
+  useVerbose = FALSE)
 }
 \arguments{
-\item{coreUrl}{character string that is the url of LIMS}
-
-\item{jessionid}{valid jesssionid as character string}
+\item{coreApi}{coreApi object with valid jsessionid}
 
 \item{barcode}{User provided barcode as a character string}
 
 \item{filename}{name to use for the attached file}
 
-\item{filepath}{path to the firl to attach}
+\item{filepath}{path to the file to attach}
 
 \item{targetAttributeName}{- if included the name if the attribute to attach the file to.  Must be in all caps.}
 
@@ -33,9 +31,9 @@ RETURN returns a list $entity contains entity information, $response contains th
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreUrl,user,pwd)
-jessionid<-response$sessionInfo$jessionid
-newitem<-CoreAPI::fileAttach(coreUrl,jessionid,entityType,barcodefilename,filepath,targetAttributeName="",useVerbose=FALSE)
+response<- CoreAPI::authBasic(coreApi)
+
+newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
 jsonlite::toJSON(newitem$item)
 logOut(coreUrl,js,postVerbose=FALSE )
 }

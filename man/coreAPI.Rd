@@ -2,8 +2,8 @@
 % Please edit documentation in R/coreAPI.R
 \name{coreAPI}
 \alias{coreAPI}
-\title{Creates a object of class coreAPI that contains connection information
-\code{etradeAPI("path to json")}}
+\title{Creates a object of class coreAPI that contains user and connection information
+\code{coreApi("path to json")}}
 \usage{
 coreAPI(CoreAccountInfo)
 }
@@ -14,27 +14,31 @@ coreAPI(CoreAccountInfo)
 Object of class coreAPI
 }
 \description{
-Creates a object of class coreAPI that contains connection information
-\code{etradeAPI("path to json")}
+Creates a object of class coreAPI that contains user and connection information
+\code{coreApi("path to json")}
 }
 \details{
-{ Creates a object of class coreAPI that contains user name, \cr
-         password base url, and account \cr
+Creates a object of class coreAPI that contains user name,            \cr
+         password base url, and account                                        \cr
          if needed. It has slots for account, jsessionID, AWSELB, and base URL. \cr
-         Requires a json file that contains the user pwd and account. \cr
+         Requires a json file that contains the user pwd and account.           \cr
+
+        \code{#'Creates a object of class coreAPI that contains account information} \cr
+        \code{coreAPI("path to json")}  \cr \cr
+The json must include the fields shown below.  The account value may be set to "" if the user only has access to one tenant. \cr \cr
+Example json object.  \cr \cr
+         \code{
+               [{                             \cr
+                 "user": "xxxxxxxxx",         \cr
+                 "pwd": "xxxxxxxxx",          \cr
+                 "coreUrl": "xxxxxxx",        \cr
+                "account": "xxxxxxxxx",       \cr
+               }]                              \cr
           }
-\code{#'Creates a object of class coreAPI that contains account information}
-\code{coreAPI("path to json")}
-\code{
-           [{
-             "user": "xxxxxxxxx",         \cr
-             "pwd": "xxxxxxxxx",          \cr
-             "coreUrl": "xxxxxxx",        \cr
-             "account": "xxxxxxxxx",      \cr
-           }]                             \cr
-}
 }
 \examples{
-\dontrun {  }
+\dontrun{
+  api<-coreApi("/home")
+}
 }
 

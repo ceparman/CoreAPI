@@ -4,14 +4,12 @@
 \alias{createEntity}
 \title{createEntity - Create a new instance of a entitiy.}
 \usage{
-createEntity(coreUrl, jessionid, entityType, attributeValues = NULL,
-  locationId = NULL, projectIds = NULL, barcode = NULL,
-  associations = NULL, useVerbose = FALSE)
+createEntity(coreApi, entityType, attributeValues = NULL, locationId = NULL,
+  projectIds = NULL, barcode = NULL, associations = NULL,
+  useVerbose = FALSE)
 }
 \arguments{
-\item{coreUrl}{character string that is the url of LIMS}
-
-\item{jessionid}{valid jesssionid as character string}
+\item{coreApi}{coreApi object with valid jsessionid}
 
 \item{entityType}{entity type to get as character string}
 

@@ -2,20 +2,22 @@
 #'
 #'\code{authBasic} authenticates to Core API
 #'
-#'@param coreApi object of class coreApi that contains user, password,  baseURL and account(optional)
-#'@param useVerbose - Use verbose setting for HTTP commands
-#'@return { returns a list $coreApi which retuned passed coreApi object with  jsessionid, \cr
+#'@param coreApi object of class coreApi that contains user, password,  baseURL and \cr
+#'        account. account is required if user has access to multiple tenants.
+#'
+#'@param useVerbose - Use verbose settings for HTTP commands
+#'@return returns a list with coreApi which returns the passed coreApi object with  jsessionid, \cr
 #'            awselb and employeeid populated, $response contains the entire http response \cr
-#'         }
+#'
 #'
 #'@export
 #'@examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreUrl,user,pwd)
-#' js<-response$sessionInfo$jessionid
-#' logOut(coreUrl,js,postVerbose=FALSE )}
+#' response<- CoreAPI::authBasic(coreAPI)
+#            logOut(response$coreApi,useVerbose=TRUE )
+#'}
 #'@author Craig Parman
-#'@description \code{logOut} Logs in and create a jsession using a username and password..
+#'@description \code{authBasic} Logs in and returns a fully populated coreApi object.
 
 
 

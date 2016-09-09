@@ -1,26 +1,32 @@
-#'Creates a object of class coreAPI that contains connection information
-#'\code{etradeAPI("path to json")}
+#'Creates a object of class coreAPI that contains user and connection information
+#'\code{coreApi("path to json")}
 #'@param CoreAccountInfo file with account information in json format.
 #'@return Object of class coreAPI
 #'@export
 #'@examples
-#'\dontrun {  }
-#'@details { Creates a object of class coreAPI that contains user name, \cr
-#'          password base url, and account \cr
+#'\dontrun{
+#'   api<-coreApi("/home")
+#'}
+#'@details  Creates a object of class coreAPI that contains user name,            \cr
+#'          password base url, and account                                        \cr
 #'          if needed. It has slots for account, jsessionID, AWSELB, and base URL. \cr
-#'          Requires a json file that contains the user pwd and account. \cr
+#'          Requires a json file that contains the user pwd and account.           \cr
+#'
+#'         \code{#'Creates a object of class coreAPI that contains account information} \cr
+#'         \code{coreAPI("path to json")}  \cr \cr
+#' The json must include the fields shown below.  The account value may be set to "" if the user only has access to one tenant. \cr \cr
+#' Example json object.  \cr \cr
+#'          \code{
+#'                [{                             \cr
+#'                  "user": "xxxxxxxxx",         \cr
+#'                  "pwd": "xxxxxxxxx",          \cr
+#'                  "coreUrl": "xxxxxxx",        \cr
+#'                 "account": "xxxxxxxxx",       \cr
+#'                }]                              \cr
 #'           }
-#'\code{#'Creates a object of class coreAPI that contains account information}
-#'\code{coreAPI("path to json")}
 
-#'\code{
-#'            [{
-#'              "user": "xxxxxxxxx",         \cr
-#'              "pwd": "xxxxxxxxx",          \cr
-#'              "coreUrl": "xxxxxxx",        \cr
-#'              "account": "xxxxxxxxx",      \cr
-#'            }]                             \cr
-#' }
+
+
 coreAPI<- function(CoreAccountInfo)
 {
 
