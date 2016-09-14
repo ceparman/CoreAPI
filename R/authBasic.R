@@ -72,9 +72,10 @@ session<-tryCatch(getSession(response), error = function(e) { list( "jsessionid"
 
 
 
-coreApi$jsessionId <-session$jsessionid
-coreApi$awselb <- session$awselb
-coreApi$employeeId <- session$employeeId
+if(!is.null( session$jsessionid)) coreApi$jsessionId <-session$jsessionid
+if(!is.null( session$awselb)) coreApi$awselb <- session$awselb
+if(!is.null( session$employeeId)) coreApi$employeeId <- session$employeeId
+
 
 list(coreApi=coreApi,response=response)
 
