@@ -4,20 +4,18 @@
 #'
 #'@param coreApi object of class coreApi that contains user, password,  baseURL and \cr
 #'        account. account is required if user has access to multiple tenants.
-#'
 #'@param useVerbose - Use verbose settings for HTTP commands
 #'@return returns a list with coreApi which returns the passed coreApi object with  jsessionid, \cr
 #'            awselb and employeeid populated, $response contains the entire http response \cr
-#'
-#'
 #'@export
 #'@examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreAPI)
-#            logOut(response$coreApi,useVerbose=TRUE )
+#' api<-CoreAPI("PATH TO JSON FILE")
+#' response<- CoreAPI::authBasic(api)
+#' logOut(response$coreApi,useVerbose=TRUE )
 #'}
 #'@author Craig Parman
-#'@description \code{authBasic} Logs in and returns a fully populated coreApi object.
+#'@description \code{authBasic} Logs in and returns a fully populated coreApi object in $coreAPI.
 
 
 

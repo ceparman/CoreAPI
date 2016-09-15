@@ -22,9 +22,10 @@ returns list with $success = TRUE when sucessful, $response contains the entire 
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreapi,pwd)
-
-logOut(response$coreApi,useVerbose=FALSE )}
+api<-CoreAPI("PATH TO JSON FILE")
+response<- CoreAPI::authBasic(api)
+logOut(response$coreApi,useVerbose=TRUE )
+}
 }
 \author{
 Craig Parman

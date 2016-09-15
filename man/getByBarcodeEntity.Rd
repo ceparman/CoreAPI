@@ -26,11 +26,10 @@ returns a list $entity contains entity information, $response contains the entir
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreUrl,user,pwd)
-js<-response$sessionInfo$jsessionid
-item<-CoreAPI::getByBarcodeEntity(coreUrl,js,entityType,barcode,useVerbose)
-jsonlite::toJSON(item$entity)
-logOut(coreUrl,js,postVerbose=FALSE )}
+api<-CoreAPI("PATH TO JSON FILE")
+login<- CoreAPI::authBasic(api)
+item<-getByBarcodeEntity(login$coreApi,"barcode")
+logOut(login$coreApi )}
 }
 \author{
 Craig Parman

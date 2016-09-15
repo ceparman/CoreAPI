@@ -27,15 +27,14 @@ RETURN returns a list $entity contains entity information, $response contains th
 \code{attachFile} Attaches a file to entity identified by barcode or one ot its attributes.
 }
 \details{
-\code{attachFile} Creates a new entity instance.
+\code{attachFile}  attaches a file to an entitiy or attribute.
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreApi)
-
+api<-CoreAPI("PATH TO JSON FILE")
+login<- CoreAPI::authBasic(api)
 newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
-jsonlite::toJSON(newitem$item)
-logOut(coreUrl,js,postVerbose=FALSE )
+logOut(login$coreApi )
 }
 }
 \author{

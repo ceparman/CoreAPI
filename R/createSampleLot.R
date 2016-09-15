@@ -1,6 +1,6 @@
 #' createEntity - Create a sample lot.
 #'
-#' \code{createEntity} Creates a new entity instance.
+#' \code{createSampleLot} Creates a lot of a sample.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string
 #' @param sampleBarcode parent sample barcode
@@ -14,14 +14,13 @@
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreApi)
-#'
-#' jsonlite::toJSON(item$item)
-#' logOut(coreUrl,js,postVerbose=FALSE )
+#' api<-CoreAPI("PATH TO JSON FILE")
+#' login<- CoreAPI::authBasic(api)
+#' item<-createSampleLot(login$coreApi,"Sample_Lot_Name","sample_barcode"
+#' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{createEntity} Creates a new sample lot
-
+#'@description \code{createSampleLot} Creates a new sample lot using the parent sample barcode
 
 
 

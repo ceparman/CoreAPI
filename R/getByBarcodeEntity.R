@@ -10,11 +10,10 @@
 #'@export
 #'@examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreUrl,user,pwd)
-#' js<-response$sessionInfo$jsessionid
-#' item<-CoreAPI::getByBarcodeEntity(coreUrl,js,entityType,barcode,useVerbose)
-#' jsonlite::toJSON(item$entity)
-#' logOut(coreUrl,js,postVerbose=FALSE )}
+#'api<-CoreAPI("PATH TO JSON FILE")
+#' login<- CoreAPI::authBasic(api)
+#' item<-getByBarcodeEntity(login$coreApi,"barcode")
+#' logOut(login$coreApi )}
 #'@author Craig Parman
 #'@description \code{getByBarcodeEntity} Get an entity from the LIMS by barcode and entyType.
 

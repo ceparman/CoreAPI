@@ -13,11 +13,10 @@
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreApi)
-#'
-#' newitem<-CoreAPI::updateEntity(response$coreapi,entityType,barcode)
-#' jsonlite::toJSON(newitem$item)
-#' logOut(coreUrl,js,postVerbose=FALSE )
+#' api<-CoreAPI("PATH TO JSON FILE")
+#' login<- CoreAPI::authBasic(api)
+#' newitem<-CoreAPI::updateEntity(login$coreApi,entityType,barcode)
+#' logOut(login$coreApi ) response<- CoreAPI::authBasic(coreApi)
 #' }
 #'@author Craig Parman
 #'@description \code{updateEntity} Creates a new entity instance. Required inputs are url, jsessionId and entityType.

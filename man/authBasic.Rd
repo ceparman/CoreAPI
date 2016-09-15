@@ -17,14 +17,16 @@ returns a list with coreApi which returns the passed coreApi object with  jsessi
            awselb and employeeid populated, $response contains the entire http response \cr
 }
 \description{
-\code{authBasic} Logs in and returns a fully populated coreApi object.
+\code{authBasic} Logs in and returns a fully populated coreApi object in $coreAPI.
 }
 \details{
 \code{authBasic} authenticates to Core API
 }
 \examples{
 \dontrun{
-response<- CoreAPI::authBasic(coreAPI)
+api<-CoreAPI("PATH TO JSON FILE")
+response<- CoreAPI::authBasic(api)
+logOut(response$coreApi,useVerbose=TRUE )
 }
 }
 \author{

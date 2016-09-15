@@ -8,9 +8,10 @@
 #'@export
 #'@examples
 #'\dontrun{
-#' response<- CoreAPI::authBasic(coreapi,pwd)
-#'
-#' logOut(response$coreApi,useVerbose=FALSE )}
+#' api<-CoreAPI("PATH TO JSON FILE")
+#' response<- CoreAPI::authBasic(api)
+#' logOut(response$coreApi,useVerbose=TRUE )
+#' }
 #'@author Craig Parman
 #'@description \code{logOut} logs out of the current jsession.
 
