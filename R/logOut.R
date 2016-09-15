@@ -39,8 +39,4 @@ logOut<-function(coreApi, useVerbose = FALSE)
 }
 
 
-# r<-authBasic(coreUrl,user,pwd)
-#
-# logOut(coreUrl,r$sessionInfo$jessionid)
-#
 
