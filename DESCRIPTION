@@ -7,6 +7,9 @@ Maintainer: Craig Parman <cparman@coreinfromatics.com>
 Description: The package provides funtions for intacting with the Core API
 License: GPL-2 | GPL-3
 LazyData: TRUE
-Imports:  httr,jsonlite
-Suggests: testthat
+Imports: httr,jsonlite
+Suggests: testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

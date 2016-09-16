@@ -1,0 +1,203 @@
+---
+title: "Using the CoreAPI Package"
+author: "Craig Parman"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+  
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+##Introduction
+
+This package is designed to simplify interacting with the Core REST API using R.  The functions in the package are designed to cover common tasks you might want to do.  Many of the high level functions make assumptions about the various setting and parameters to the API to simplify usage.  If you require control of addition parameters such responseOptions or logic options you can easily extend the functions in this package.
+
+The REST API does not currently support configuration changes.  this means you can not create of modify entity configurations.  This functionality must be done through the application GUI.
+
+All functions that make a HTTP call will return a list with two objects. The first object will be the object returned by the function, such as the entity record, and a second object named response which contains the full http response object. 
+
+
+Note:  All of the functionality and limitations for this version of the CoreAPI refer to the first version on the Core REST API, and not the ODATA compliant version.  The package will be extended to cover the new functionality at some point.
+
+
+##Authentication
+
+The current API supports basic authentication.  Once the user is authenticated a jsession id value is appended to the web calls.  The details are in the CORE LIMS documentation here:
+
+https://documentation.corelims.com/docs/v5/SDK/JSON_Web_Service/Best_Practices_for_API_Usage.htm
+
+The authentication process requires two functions calls.  The first step is to read the URL, username and password information from a file with the function coreAPI.  The input file in in json format as shown below.
+
+                [{                             
+                  "user": "xxxxxxxxx",         
+                  "pwd": "xxxxxxxxx",          
+                  "coreUrl": "http:://xxxx.platformforscience.com",        
+                  "account": "xxxxxxxxx",       
+                }]                             
+        
+
+The first three parameters and required and the account entry is only required if the user has access to more than one tenant. This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.
+
+
+```{r eval = FALSE}
+
+#get login information
+
+loginInfo<-CoreAPI::coreAPI(CoreAccountInfo="path/account.json")
+
+# authenticate
+response<- CoreAPI::authBasic(loginInfo)
+  
+#print the session ID  
+print(response$coreApi$jsessionId)
+  
+#log out
+CoreAPI::logOut(response$coreApi)$success
+
+```  
+     
+When to log out is dependent on the workflow. The basic workflow for any interaction with the API is to log into a session, execute all business logic needed to perform your operation (can be one or many calls), and then log out. For best performance, it is NOT recommended to log into a new session for each call.
+
+
+
+##Create, Get and Updating Entities
+
+Three functions can handle the create, retrieve, update and delete (CRUD) functionality for most entities. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.
+
+The function createEntity create an entity.  Information about attribute values and associations are passed to the function as lists.  Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.  In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters.(This is good practice anyway.) Underscores are supported.
+
+A the minimal call to create an entity is:
+
+```{r eval = FALSE}
+
+CoreAPI::createEntity(response$coreApi,entityType)
+
+```
+"response$coreApi"" is the session information and "entityType" can either be a literal string or a character variable with the name of the entity type to be created.  The attribute and association values will all default to blank if their values are not passed.
+
+
+A list to populate a set of attributes would look like this.
+
+```{r eval = FALSE}
+
+attributeValues<-list(SOURCE_LAB = "New York Medical Center",Number = 5,REQUESTOR="CEP")
+
+```
+On creation this list is only required to have entries for mandatory attributes.  On update only attributes in the list will be updated.  
+
+Associations require a bit or information.  The list required is create with a statement like this.
+
+```{r eval= FALSE}
+associations<-list(SAMPLE_ENZYME=data.frame(name="",entitiyId="",barcode="ENZ1"))
+```
+The association may be identified by either it entityID or its barcode, or both.  Again only mandatory association are required for creation.  All call to create an entity with attributes and associations would look like this.
+
+```{r eval = FALSE}
+
+entityType <- "Pataint Sample"
+
+attributeValues<-list(SOURCE_LAB = "New York Medical Center",Number = 5,REQUESTOR="CEP")
+
+associations<-list(SAMPLE_ENZYME=data.frame(name="",entitiyId="",barcode="ENZ1"))
+
+CoreAPI::createEntity(response$coreApi,entityType,attributeValues,associations)
+
+```
+
+An update has a very similar form except the entity barcode is provided to identify what to update.
+
+```{r eval = FALSE}
+entityBarcode <-"PS100"
+
+CoreAPI::updateEntity(response$coreApi,entityType,entitybarcode,
+                      attributevalues=attributeValues,associations = associations)
+
+```
+
+The retrieve an entity use the getEntityByBarcode function.  Only the entity type and barcode are required.
+
+```{r eval = FALSE}
+
+get<-getEntityByBarcode(response$coreApi, entityType, barcode)
+
+item <- get$entity
+```
+
+
+Other parameters, passed as strings, that can be user in create are
+
+parameter | value 
+-----------|------
+locationId | location id
+projectIds | project ID
+barcode    | if entity is to be created with a user supplied barcode
+useVerbose | verbose output for debugging
+
+See the individual function documentation for details.
+
+
+##Attaching Files
+
+
+Files may be attached either directly to the entity or in a file type attribute. A single function will handle both cases. If the file is to be attached directly to the entity the targetAttributeName value is set to an empty string.  Otherwise the targetAttributeName is set to a valid file attribute.  The path to the local file is passed as a string in the parameter filepath. If multiple file need to be attached, multiple function call will be required. 
+
+```{r eval = FALSE}
+
+# attach to the attribute named File
+
+ items2<-CoreAPI::attachFile(response$coreApi,barcode,"SAgraph.png",filepath,targetAttributeName="File")
+
+#attach to the entity
+
+attachFile(response$coreApi,barcode,filename="SAgraph.png",filepath=filepath,targetAttributeName=""")
+
+
+```
+
+
+A URL for the file object is stored in the entity record.  For file attached to a attribute the value is under values$[attribute name]$stringdata as shown below.
+```{r eval =FALSE}
+item$entity$values$FILE
+$stringData
+[1] "{'file':'SAgraph.png.16','url':'https://experience.platformforscience.com/corelims?cmd=view-file&entityType=FILE ATTRIBUTE&entityId=9532882'}"
+
+```
+
+There is no API functionality to see if a file is attached to the entity. There also is not currently any API functionality to retrieve file attached to an attribute.  The URL will only work when called from a browser that has been authenticated using the GUI interface.  A workaround is possible and will be included it a future release.
+
+
+##Samples and Sample Lots
+
+Samples are created using the createEntity function described above.  Sample lots are created with the function createSampleLot.  This function is very similar to createEntiry but contains an addition parameter for the barcode of the associated sample.  A typical create sample and a lot sequence is shown below.  If multiple lots are required multiple call to createSampleLot are required.
+
+
+```{r eval = FALSE}
+
+
+#Create Sample
+
+sample<-createEntity(response$coreApi, "WHOLE BLOOD", attributeValues = attributes)
+
+
+
+#get barcode of the sample
+
+sampleBC <-sample$entity$barcode
+
+#Create Lot
+
+item<-createSampleLot(login$coreApi,"WHOLE BLOOD LOT", sampleBarcode=sampleBC,
+                      attributes = lotAttributes )
+
+```
+
+
+
+
+
+##Containers
+
+##Experiments and Assays
+

@@ -1,5 +1,5 @@
 
-context("Tests for getByBarcodeEntity")
+context("Tests for createEntity")
 
 
 #Test createEntitiy functionality
