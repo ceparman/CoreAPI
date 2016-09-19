@@ -4,3 +4,4 @@
 .Ruserdata
 /tests/testthat/testfiles/*
 inst/doc
+/dev/*

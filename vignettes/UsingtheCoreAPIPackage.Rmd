@@ -11,12 +11,14 @@ vignette: >
 
 ##Introduction
 
-This package is designed to simplify interacting with the Core REST API using R.  The functions in the package are designed to cover common tasks you might want to do.  Many of the high level functions make assumptions about the various setting and parameters to the API to simplify usage.  If you require control of addition parameters such responseOptions or logic options you can easily extend the functions in this package.
+This package is designed to simplify interacting with the Core REST API using R.  The functions in the package are designed to cover common tasks you might want to do.  Many of the high level functions make assumptions about the various setting and parameters to the API to simplify usage.  If you require control of addition parameters such response or logic options you can easily extend the functions in this package.
 
-The REST API does not currently support configuration changes.  this means you can not create of modify entity configurations.  This functionality must be done through the application GUI.
+The REST API does not currently support configuration changes. This means you can not create of modify entity configurations.  This functionality must be done through the application GUI.
 
 All functions that make a HTTP call will return a list with two objects. The first object will be the object returned by the function, such as the entity record, and a second object named response which contains the full http response object. 
 
+
+ Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.  In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters.(This is good practice anyway.) Underscores are supported.
 
 Note:  All of the functionality and limitations for this version of the CoreAPI refer to the first version on the Core REST API, and not the ODATA compliant version.  The package will be extended to cover the new functionality at some point.
 
@@ -37,7 +39,7 @@ The authentication process requires two functions calls.  The first step is to r
                 }]                             
         
 
-The first three parameters and required and the account entry is only required if the user has access to more than one tenant. This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.
+Values for the first three parameters and required and the account entry is only required if the user has access to more than one tenant. If the account parmeter is not required pas a zero length string "" . This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.
 
 
 ```{r eval = FALSE}
@@ -63,9 +65,9 @@ When to log out is dependent on the workflow. The basic workflow for any interac
 
 ##Create, Get and Updating Entities
 
-Three functions can handle the create, retrieve, update and delete (CRUD) functionality for most entities. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.
+Three functions handle the create, retrieve, update and delete (CRUD) functionality for most entities. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.
 
-The function createEntity create an entity.  Information about attribute values and associations are passed to the function as lists.  Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.  In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters.(This is good practice anyway.) Underscores are supported.
+The function createEntity create an entity.  Information about attribute values and associations are passed to the function as lists.   Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.  In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters. Underscores are supported.
 
 A the minimal call to create an entity is:
 
@@ -86,12 +88,12 @@ attributeValues<-list(SOURCE_LAB = "New York Medical Center",Number = 5,REQUESTO
 ```
 On creation this list is only required to have entries for mandatory attributes.  On update only attributes in the list will be updated.  
 
-Associations require a bit or information.  The list required is create with a statement like this.
+Associations require a bit moor information.  The list required is create with a statement like this.
 
 ```{r eval= FALSE}
 associations<-list(SAMPLE_ENZYME=data.frame(name="",entitiyId="",barcode="ENZ1"))
 ```
-The association may be identified by either it entityID or its barcode, or both.  Again only mandatory association are required for creation.  All call to create an entity with attributes and associations would look like this.
+The association may be identified by either it entityID or its barcode, or both.  Again only mandatory association are required for creation.  A call to create an entity with attributes and associations would look like this.
 
 ```{r eval = FALSE}
 
@@ -125,9 +127,9 @@ item <- get$entity
 ```
 
 
-Other parameters, passed as strings, that can be user in create are
+Other parameters, passed as strings, that can be used in create and update are:
 
-parameter | value 
+ parameter | value 
 -----------|------
 locationId | location id
 projectIds | project ID
@@ -150,13 +152,13 @@ Files may be attached either directly to the entity or in a file type attribute.
 
 #attach to the entity
 
-attachFile(response$coreApi,barcode,filename="SAgraph.png",filepath=filepath,targetAttributeName=""")
+attachFile(response$coreApi,barcode,filename="SAgraph.png",filepath=filepath,targetAttributeName="")
 
 
 ```
 
 
-A URL for the file object is stored in the entity record.  For file attached to a attribute the value is under values$[attribute name]$stringdata as shown below.
+A URL for the file object is stored in the entity record.  For file attached to a attribute the value is under `values$[attribute name]$stringdata` as shown below.
 ```{r eval =FALSE}
 item$entity$values$FILE
 $stringData
@@ -164,7 +166,7 @@ $stringData
 
 ```
 
-There is no API functionality to see if a file is attached to the entity. There also is not currently any API functionality to retrieve file attached to an attribute.  The URL will only work when called from a browser that has been authenticated using the GUI interface.  A workaround is possible and will be included it a future release.
+There is no API functionality to see if a file is attached to the entity. There also is not currently any API functionality to retrieve file attached to an attribute.  The download URL will only work when called from a browser that has been authenticated using the GUI interface.  A workaround is possible and will be included it a future release.
 
 
 ##Samples and Sample Lots
