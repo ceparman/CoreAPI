@@ -3,9 +3,8 @@ title: "Using the CoreAPI Package"
 author: "Craig Parman"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
-  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Using the CoreAPI Package}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---

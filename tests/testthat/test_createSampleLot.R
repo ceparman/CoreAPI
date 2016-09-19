@@ -1,5 +1,5 @@
 
-context("Tests for samples and lota")
+context("Tests for samples and lots")
 
 
 #Test createEntitiy functionality
