@@ -33,7 +33,8 @@ RETURN returns a list $entity contains entity information, $response contains th
 \dontrun{
 api<-CoreAPI("PATH TO JSON FILE")
 login<- CoreAPI::authBasic(api)
-newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
+newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,
+         filepath,targetAttributeName="",useVerbose=FALSE)
 logOut(login$coreApi )
 }
 }

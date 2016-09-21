@@ -2,7 +2,7 @@
 % Please edit documentation in R/createSampleLot.R
 \name{createSampleLot}
 \alias{createSampleLot}
-\title{createEntity - Create a sample lot.}
+\title{createSampleLot - Creates a lot of a sample..}
 \usage{
 createSampleLot(coreApi, entityType, sampleBarcode, attributeValues = NULL,
   locationId = NULL, projectIds = NULL, barcode = NULL,

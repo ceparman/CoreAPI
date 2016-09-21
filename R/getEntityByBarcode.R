@@ -10,10 +10,11 @@
 #'@export
 #'@examples
 #'\dontrun{
-#'api<-CoreAPI("PATH TO JSON FILE")
+#' api<-CoreAPI("PATH TO JSON FILE")
 #' login<- CoreAPI::authBasic(api)
-#' item<-getEntityByBarcode(login$coreApi,"barcode")
-#' logOut(login$coreApi )}
+#' item<-getEntityByBarcode(login$coreApi,"entityType","barcode")
+#' logOut(login$coreApi)
+#' }
 #'@author Craig Parman
 #'@description \code{getEntityByBarcode} Get an entity from the LIMS by barcode and entyType.
 

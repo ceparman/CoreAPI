@@ -17,12 +17,12 @@
 #' The json must include the fields shown below.  The account value may be set to "" if the user only has access to one tenant. \cr \cr
 #' Example json object.  \cr \cr
 #'          \code{
-#'                [{                             \cr
-#'                  "user": "xxxxxxxxx",         \cr
-#'                  "pwd": "xxxxxxxxx",          \cr
-#'                  "coreUrl": "xxxxxxx",        \cr
-#'                 "account": "xxxxxxxxx",       \cr
-#'                }]                              \cr
+#'                [{
+#'                  "user": "xxxxxxxxx",
+#'                  "pwd": "xxxxxxxxx",
+#'                  "coreUrl": "xxxxxxx",
+#'                 "account": "xxxxxxxxx",
+#'                }]
 #'           }
 
 

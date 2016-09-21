@@ -29,7 +29,7 @@ updateEntity(coreApi, entityType, barcode, attributeValues = NULL,
 RETURN returns a list $entity contains entity information, $response contains the entire http response
 }
 \description{
-\code{updateEntity} Creates a new entity instance. Required inputs are url, jsessionId and entityType.
+\code{updateEntity} Creates a new entity instance.
 }
 \details{
 \code{updateEntity} Creates a new entity instance.

@@ -28,8 +28,9 @@ returns a list $entity contains entity information, $response contains the entir
 \dontrun{
 api<-CoreAPI("PATH TO JSON FILE")
 login<- CoreAPI::authBasic(api)
-item<-getEntityByBarcode(login$coreApi,"barcode")
-logOut(login$coreApi )}
+item<-getEntityByBarcode(login$coreApi,"entityType","barcode")
+logOut(login$coreApi)
+}
 }
 \author{
 Craig Parman

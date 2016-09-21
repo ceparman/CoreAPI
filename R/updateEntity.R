@@ -19,7 +19,7 @@
 #' logOut(login$coreApi ) response<- CoreAPI::authBasic(coreApi)
 #' }
 #'@author Craig Parman
-#'@description \code{updateEntity} Creates a new entity instance. Required inputs are url, jsessionId and entityType.
+#'@description \code{updateEntity} Creates a new entity instance.
 
 
 

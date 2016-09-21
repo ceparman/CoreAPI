@@ -1,4 +1,4 @@
-#' createEntity - Create a sample lot.
+#' createSampleLot - Creates a lot of a sample..
 #'
 #' \code{createSampleLot} Creates a lot of a sample.
 #' @param coreApi coreApi object with valid jsessionid
