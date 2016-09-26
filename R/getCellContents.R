@@ -4,7 +4,7 @@
 #' @param coreApi coreApi object with valid jsessionid
 #' @param containerBarcode container barcode
 #' @param containerCellNum container cel number as a string
-#' @param useVerbose use verbode messaging for debugging
+#' @param useVerbose  Use verbose communication for debugging
 #' @export
 #' @return RETURN returns a list $entity contains cell information, $response contains the entire http response
 #' @examples
@@ -50,13 +50,8 @@ getCellContents<-function (coreApi, containerBarcode, containerCellNum,useVerbos
                              logicOptions=logicOptions))
 
 
+response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
-
-
-sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
-
-response<-httr::POST(sdk_url,body = request, encode="json",
-                  httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
 
 
 list(entity=httr::content(response)$response$data,response=response)

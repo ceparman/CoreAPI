@@ -90,24 +90,13 @@ updateEntity<-function (coreApi,entityType,barcode,attributeValues=NULL,
 
 
 
-
-
-
-
   request<-list(request=list(sdkCmd=sdkCmd,data=data,typeParam =typeParam,
                              responseOptions=responseOptions,
                              logicOptions=logicOptions))
 
 
 
-
-
-
-  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
-
-
-  response<-httr::POST(sdk_url,body = request, encode="json",
-                       httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
+  response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
 
   list(entity=httr::content(response)$response$data,response=response)

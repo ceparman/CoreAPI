@@ -6,7 +6,7 @@
 #' @param filename name to use for the attached file
 #' @param filepath path to the file to attach
 #' @param targetAttributeName - if included the name if the attribute to attach the file to.  Must be in all caps.
-#' @param useVerbose Use verbose communitcaion for debuggins
+#' @param useVerbose Use verbose communication for debugging
 #' @export
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples
@@ -75,27 +75,12 @@ attachFile<-function (coreApi,barcode,filename,filepath,targetAttributeName="",u
    )
 
 
+   #call 1
+   response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
-  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
 
-
-  response<-httr::POST(sdk_url,body = request, encode="json",
-                       httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
-
-  response<-httr::POST(sdk_url,body = form, encode="multipart",
-                       httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
-
-  if(httr::http_error(response)) {
-
-    stop(
-      {print("API call failed")
-        print( httr::http_status(response))
-      },
-      call.=FALSE
-    )
-
-  }
-
+   #up load file
+   response<- CoreAPI::apiCall(coreApi,form,"multipart",useVerbose=useVerbose)
 
 
 

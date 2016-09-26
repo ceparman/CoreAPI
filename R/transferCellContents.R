@@ -62,25 +62,10 @@ transferCellContents<-function (coreApi,sourceCellID,destCellID,amount,concentra
                              responseOptions=responseOptions,
                              logicOptions=logicOptions))
 
-
-
-jsonlite::toJSON(request, pretty =  TRUE)
-
-sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
-
-response<-httr::POST(sdk_url,body = request, encode="json",
-                  httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
+response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
 
 list(entity=httr::content(response)$response$data,response=response)
 
 }
 
-
-#transferCellContents(coreApi,"9542000","9542039",".5",".25",
-#                                "mL", "mg/mL",useVerbose = FALSE)
-
-
-
-#tc<-transferCellContents(coreApi,"9548486","9548492","1","3",
-#                         "mL", "mg/mL",useVerbose = FALSE)

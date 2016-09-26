@@ -14,7 +14,7 @@ getCellContents(coreApi, containerBarcode, containerCellNum,
 
 \item{containerCellNum}{container cel number as a string}
 
-\item{useVerbose}{use verbode messaging for debugging}
+\item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
 RETURN returns a list $entity contains cell information, $response contains the entire http response

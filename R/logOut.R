@@ -27,9 +27,7 @@ logOut<-function(coreApi, useVerbose = FALSE)
 
   request<-list(request=list(data=list(),typeParam =jsonlite::unbox("*"), sdkCmd =jsonlite::unbox("sdk-logout")))
 
-
-  response<-httr::POST(log_out_url,body = request, encode="json",
-                       httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
+  response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
 
   list(success= httr::http_status(response)$category,response=response)

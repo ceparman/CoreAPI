@@ -13,7 +13,7 @@ tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/account.json")
 test_that("Minimal createEnitiy example",
           { source("testfiles/testEntityValues.R")
             r<-CoreAPI::authBasic(tapi)
-            item<- CoreAPI::createEntity(r$coreApi,entityType)
+            item<- CoreAPI::createEntity(r$coreApi,entityType,useVerbose=TRUE)
             type<-item$entity$entityTypeName
             out<-CoreAPI::logOut(r$coreApi)
             expect_equal(object=type,expected="PATIENT SAMPLE")

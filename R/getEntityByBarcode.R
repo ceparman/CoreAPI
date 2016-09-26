@@ -34,11 +34,9 @@ getEntityByBarcode<-function (coreApi,entityType,barcode,useVerbose=FALSE)
                     ))
 
 
-      sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jsessionId,sep="")
+  response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
 
-    response<-httr::POST(sdk_url,body = request, encode="json",
-            httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
 
   list(entity=httr::content(response)$response$data,response=response)
 

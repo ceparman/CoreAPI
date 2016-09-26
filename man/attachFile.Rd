@@ -18,7 +18,7 @@ attachFile(coreApi, barcode, filename, filepath, targetAttributeName = "",
 
 \item{targetAttributeName}{- if included the name if the attribute to attach the file to.  Must be in all caps.}
 
-\item{useVerbose}{Use verbose communitcaion for debuggins}
+\item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
 RETURN returns a list $entity contains entity information, $response contains the entire http response
