@@ -2,7 +2,7 @@
 % Please edit documentation in R/getContainerLineage.R
 \name{getContainerLineage}
 \alias{getContainerLineage}
-\title{Get lineage for a container by barcode}
+\title{getContainerLineage - Get lineage for a container by barcode}
 \usage{
 getContainerLineage(coreApi, barcode, useVerbose = FALSE)
 }

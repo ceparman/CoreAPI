@@ -2,7 +2,7 @@
 % Please edit documentation in R/logOut.R
 \name{logOut}
 \alias{logOut}
-\title{Log user out of the LIMS}
+\title{logOut -Log user out of the LIMS.}
 \usage{
 logOut(coreApi, useVerbose = FALSE)
 }

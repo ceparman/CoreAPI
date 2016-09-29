@@ -1,4 +1,4 @@
-#'Get lineage for a container by barcode
+#'getContainerLineage - Get lineage for a container by barcode
 #'
 #'\code{getContainerLineage} get an entity from the LIMS by barcode and
 #'

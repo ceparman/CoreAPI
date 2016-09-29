@@ -1,4 +1,4 @@
-#'Log user out of the LIMS
+#' logOut -Log user out of the LIMS.
 #'
 #'\code{logOut} logs user out of the LIMS using Core API
 #'

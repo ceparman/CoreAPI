@@ -1,4 +1,4 @@
-#` transferCellContents -  Transfers contents from one cell to another.
+#' transferCellContents -  Transfers contents from one cell to another.
 #'
 #' \code{transferCellContents} puts a cell lot in a container cell
 #' @param coreApi coreApi object with valid jsessionid
@@ -53,7 +53,6 @@ transferCellContents<-function (coreApi,sourceCellID,destCellID,amount,concentra
   responseOptions<-c("CONTEXT_GET","MESSAGE_LEVEL_WARN","INCLUDE_CONTAINER_CELL_CONTENTS")
   logicOptions<-jsonlite::unbox("")
   typeParam <- jsonlite::unbox("CELL")
-
 
 
 

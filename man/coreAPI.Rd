@@ -2,8 +2,7 @@
 % Please edit documentation in R/coreAPI.R
 \name{coreAPI}
 \alias{coreAPI}
-\title{Creates a object of class coreAPI that contains user and connection information
-\code{coreApi("path to json")}}
+\title{coreAPI - Creates a object of class coreAPI that contains user and connection information.}
 \usage{
 coreAPI(CoreAccountInfo)
 }
@@ -14,8 +13,7 @@ coreAPI(CoreAccountInfo)
 Object of class coreAPI
 }
 \description{
-Creates a object of class coreAPI that contains user and connection information
-\code{coreApi("path to json")}
+coreAPI - Creates a object of class coreAPI that contains user and connection information.
 }
 \details{
 Creates a object of class coreAPI that contains user name,            \cr

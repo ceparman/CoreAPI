@@ -1,4 +1,4 @@
-#' apiCall - base call to Core REST API
+#' apiCall - Base call to Core REST API.
 #'
 #' \code{apiCall}  base call to Core REST API.
 #' @param coreApi coreApi object with valid jsessionid

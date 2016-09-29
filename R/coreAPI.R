@@ -1,5 +1,4 @@
-#'Creates a object of class coreAPI that contains user and connection information
-#'\code{coreApi("path to json")}
+#' coreAPI - Creates a object of class coreAPI that contains user and connection information.
 #'@param CoreAccountInfo file with account information in json format.
 #'@return Object of class coreAPI
 #'@export

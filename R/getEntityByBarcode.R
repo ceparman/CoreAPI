@@ -1,4 +1,4 @@
-#'Get an entity from the LIMS by barcode
+#' getEntityByBarcode - Get an entity from the LIMS by barcode.
 #'
 #'\code{getEntityByBarcode} get an entity from the LIMS by barcode and
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/apiCall.R
 \name{apiCall}
 \alias{apiCall}
-\title{apiCall - base call to Core REST API}
+\title{apiCall - Base call to Core REST API.}
 \usage{
 apiCall(coreApi, body, encode, special = NULL, useVerbose = FALSE)
 }

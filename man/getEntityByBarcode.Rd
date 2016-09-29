@@ -2,7 +2,7 @@
 % Please edit documentation in R/getEntityByBarcode.R
 \name{getEntityByBarcode}
 \alias{getEntityByBarcode}
-\title{Get an entity from the LIMS by barcode}
+\title{getEntityByBarcode - Get an entity from the LIMS by barcode.}
 \usage{
 getEntityByBarcode(coreApi, entityType, barcode, useVerbose = FALSE)
 }

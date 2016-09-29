@@ -75,11 +75,9 @@ attachFile<-function (coreApi,barcode,filename,filepath,targetAttributeName="",u
    )
 
 
-   #call 1
-   response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
 
 
-   #up load file
+   #upload file
    response<- CoreAPI::apiCall(coreApi,form,"multipart",useVerbose=useVerbose)
 
 

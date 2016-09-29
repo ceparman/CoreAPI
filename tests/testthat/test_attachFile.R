@@ -36,8 +36,18 @@ test_that("Create enitiy example with attribute, project and location ",
             items2<-CoreAPI::attachFile(r$coreApi,item$entity$barcode,"SAgraph.png",filepath,targetAttributeName="File",useVerbose=FALSE)
 
 
+
+
+            filepath="testfiles/InvCapMgmtAppExport3.xml"
+            items2<-CoreAPI::attachFile(r$coreApi,item$entity$barcode,"InvCapMgmtAppExport3.xml",filepath,targetAttributeName="File",useVerbose=FALSE)
+
             expect_match(CoreAPI::logOut(r$coreApi)$success,"Success" )
-          })
+
+
+             })
+
+
+
 
 
 # test_that("Try to attach a file that does not exist ",       #need to finish

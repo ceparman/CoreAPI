@@ -2,7 +2,7 @@
 % Please edit documentation in R/getCellContents.R
 \name{getCellContents}
 \alias{getCellContents}
-\title{\code{getCellContents} puts a cell lot in a container cell}
+\title{getCellContents -  Get information about container cell contents.}
 \usage{
 getCellContents(coreApi, containerBarcode, containerCellNum,
   useVerbose = FALSE)
@@ -21,6 +21,9 @@ RETURN returns a list $entity contains cell information, $response contains the 
 }
 \description{
 \code{getCellContents} - Get information about container cell contents.
+}
+\details{
+\code{getCellContents} puts a cell lot in a container cell
 }
 \examples{
 \dontrun{

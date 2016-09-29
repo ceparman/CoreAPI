@@ -1,4 +1,4 @@
-#'Authenticates against the LIMS using basic authentication
+#'authBasic - Authenticates against the LIMS using basic authentication.
 #'
 #'\code{authBasic} authenticates to Core API
 #'

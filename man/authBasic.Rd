@@ -2,7 +2,7 @@
 % Please edit documentation in R/authBasic.R
 \name{authBasic}
 \alias{authBasic}
-\title{Authenticates against the LIMS using basic authentication}
+\title{authBasic - Authenticates against the LIMS using basic authentication.}
 \usage{
 authBasic(coreApi, useVerbose = FALSE)
 }

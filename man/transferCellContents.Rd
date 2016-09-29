@@ -2,7 +2,7 @@
 % Please edit documentation in R/transferCellContents.R
 \name{transferCellContents}
 \alias{transferCellContents}
-\title{\code{transferCellContents} puts a cell lot in a container cell}
+\title{transferCellContents -  Transfers contents from one cell to another.}
 \usage{
 transferCellContents(coreApi, sourceCellID, destCellID, amount, concentration,
   amountUnit, concentrationUnit, useVerbose = FALSE)
@@ -29,6 +29,9 @@ RETURN returns a list $entity contains cell information, $response contains the 
 }
 \description{
 \code{transferCellContents} - Get information about container cell contents.
+}
+\details{
+\code{transferCellContents} puts a cell lot in a container cell
 }
 \examples{
 \dontrun{

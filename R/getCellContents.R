@@ -1,4 +1,4 @@
-#getCellContents -  Get information about container cell contents.
+#' getCellContents -  Get information about container cell contents.
 #'
 #' \code{getCellContents} puts a cell lot in a container cell
 #' @param coreApi coreApi object with valid jsessionid
