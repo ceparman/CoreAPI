@@ -3,7 +3,7 @@ Type: Package
 Title: Core API fucntions
 Version: 0.1.0
 Author: Craig Parman
-Maintainer: Craig Parman <cparman@coreinfromatics.com>
+Maintainer: Craig Parman <cparman@coreinformatics.com>
 Description: The package provides funtions for intacting with the Core API.
 License: GPL-2 | GPL-3
 LazyData: TRUE
