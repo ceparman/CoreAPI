@@ -65,11 +65,11 @@ test_that("Create an experiment ",
                                            assayAttributeValues2,useVerbose=TRUE)
 
 
-        publish<- experimentPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+       publish<- experimentPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
 
 
 
-        unpublish<- experimentUnPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+      unpublish<- experimentUnPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
 
 
 
