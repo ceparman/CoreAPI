@@ -58,11 +58,21 @@ test_that("Create an experiment ",
 
        #add experiment data
 
-       CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[1]]$barcode,
-                                           assayAttributeValues1,useVerbose=TRUE)
+       exptdata1<-CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[1]]$barcode,
+                                           assayAttributeValues1,useVerbose=FALSE)
 
-       CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[2]]$barcode,
-                                           assayAttributeValues2,useVerbose=TRUE)
+       print(exptdata1$entity$experimentData$ASSAY_ATTRIBUTE)
+       print(assayAttributeValues1$ASSAY_ATTRIBUTE[1])
+
+       expect_equal(exptdata1$entity$experimentData$ASSAY_ATTRIBUTE$stringData,assayAttributeValues1$ASSAY_ATTRIBUTE[1] )
+
+
+
+
+       exptdata2<-CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[2]]$barcode,
+                                           assayAttributeValues2,useVerbose=FALSE)
+
+        expect_equal(exptdata2$entity$experimentData$ASSAY_ATTRIBUTE2$stringData,as.character(assayAttributeValues2$ASSAY_ATTRIBUTE2[1] ))
 
 
        publish<- experimentPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
