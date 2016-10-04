@@ -126,6 +126,19 @@ get<-getEntityByBarcode(response$coreApi, entityType, barcode)
 item <- get$entity
 ```
 
+For retivial when on the entityId is known is done with getEntityById
+
+
+The retrieve an entity use the getEntityByBarcode function.  Only the entity type and barcode are required.
+
+```{r eval = FALSE}
+
+get<-getEntityById(response$coreApi, entityType, entityId = "ID")
+
+item <- get$entity
+```
+
+
 
 Other parameters, passed as strings, that can be used in create and update are:
 

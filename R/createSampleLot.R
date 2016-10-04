@@ -42,7 +42,7 @@ createSampleLot<-function (coreApi,entityType,sampleBarcode,attributeValues=NULL
 
     for(i in 1:length(attributeValues))
       {
-        values[[names(attributeValues)[i]]] <- list(stringData= jsonlite::unbox(attributeValues[[i]]))
+        values[[names(attributeValues)[i]]] <-list(stringData= jsonlite::unbox(as.character( assayAttributeValues[[i]] ) ))
       }
 
     data[["values"]]<-values

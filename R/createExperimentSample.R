@@ -1,13 +1,18 @@
-#' createEntity - Create a new instance of a entitiy.
+#' createExperimentSample- Creates an experiment sample.
 #'
-#' \code{createEntity} Creates a new entity instance.
+#' \code{createExperimentSample} Creates an experiment sample.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string
+#' @param sampleLotBarcode parent sample barcode
+#' @param experimentBarcode experiment barcode
 #' @param attributeValues atributes as a list of key-vlaues pairs
 #' @param locationId location ID for inital location as character string
 #' @param projectIds project comma seperated list of project IDs as character string
 #' @param barcode User provided barcode as a character string
 #' @param associations association as a list of dataframes (see details)
+#' @param concentration sample lot concentration
+#' @param concentrationUnit concentration unit
+#' @param timeMin min time value
 #' @param useVerbose Use verbose communitcaion for debuggins
 #' @export
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
@@ -15,26 +20,23 @@
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")
 #' login<- CoreAPI::authBasic(api)
-#' item<-createEntityt(login$coreApi,"Entity_Type")
+#' item<-createExperimentSample(login$coreApi,
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{createEntity} Creates a new entity instance. Required inputs are url, jsessionId and entityType.
+#'@description \code{createExperimentSample} Creates a new sample lot using the parent sample barcode
 
 
 
 
-
-createEntity<-function (coreApi,entityType,attributeValues=NULL,
-                        locationId=NULL,projectIds=NULL,barcode=NULL,associations=NULL,useVerbose=FALSE)
+createExperimentSample<-function (coreApi,entityType, sampleLotBarcode,experimentBarcode, attributeValues=NULL,
+                        locationId=NULL,projectIds=NULL,barcode=NULL,associations=NULL,
+                        concentration = NULL, concentrationUnit = NULL, timeMin = NULL,
+                        useVerbose=FALSE)
 
 {
 
-  ##Notes
-  ## locationId not required but would need to be looked up if only location barcode is known.
-  #Should add functionality to look pass location barcode and look up ID
-  #todo asscociations,xxx-locations, xxxx- project, xxxx-barcode
-
+data <-NULL
   sdkCmd<-jsonlite::unbox("create")
   data<-list(entityTypeName= jsonlite::unbox(entityType))
 
@@ -55,6 +57,13 @@ createEntity<-function (coreApi,entityType,attributeValues=NULL,
 
 
 
+  data[["lotRef"]] <- list(barcode = jsonlite::unbox(sampleLotBarcode))
+
+
+
+
+  data[["experimentRef"]] <- list(barcode = jsonlite::unbox(experimentBarcode))
+
 
 
  if(!is.null(locationId))
@@ -68,10 +77,10 @@ createEntity<-function (coreApi,entityType,attributeValues=NULL,
    data[["projectIds"]]<- projectIds
  }
 
- if(!is.null(barcode))
- {
-   data[["barcode"]]<- barcode
- }
+
+
+
+
 
 
  if(!is.null(associations))
@@ -80,6 +89,22 @@ createEntity<-function (coreApi,entityType,attributeValues=NULL,
  }
 
 
+  if(!is.null(concentration))
+  {
+    data[["concentration"]]<- concentration
+  }
+
+
+  if(!is.null(concentrationUnit))
+  {
+    data[["concentrationUnit"]]<- concentrationUnit
+  }
+
+
+  if(!is.null(timeMin))
+  {
+    data[["timeMin"]]<- timeMin
+  }
 
 
   responseOptions<-c("CONTEXT_GET","MESSAGE_LEVEL_WARN")
@@ -95,10 +120,14 @@ createEntity<-function (coreApi,entityType,attributeValues=NULL,
                              logicOptions=logicOptions))
 
 
- response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
+
+response<- CoreAPI::apiCall(coreApi,request,"json",useVerbose=useVerbose)
+
+
+
+
 
 list(entity=httr::content(response)$response$data,response=response)
 
 }
-
 

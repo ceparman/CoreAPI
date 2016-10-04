@@ -32,25 +32,47 @@ test_that("Create an experiment ",
                                                               )
                                          )
 
-            print(item$entity)
-
-            newExptbarcode <-item$entity$barcode
-
-          #add a sample
-
-            update<-CoreAPI::updateExperimentContainers(r$coreApi,containerBarcode, experimentType, newExptbarcode,useVerbose = TRUE)
 
 
-            print(httr::content(update$response))
+          newExptbarcode <-item$entity$barcode
 
-            publish<- experimentPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+          #add a container which creates an experiment sample
 
-            print(httr::content(publish$response))
 
-            unpublish<- experimentUnPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+         update<-CoreAPI::updateExperimentContainers(r$coreApi,containerBarcode, experimentType, newExptbarcode,useVerbose = FALSE)
 
-            print(httr::content(unpublish$response))
+         expt<-CoreAPI::getExperimentSamples(r$coreApi,"TEST EXPERIMENT",newExptbarcode,useVerbose=FALSE)
 
-            expect_match(CoreAPI::logOut(r$coreApi)$success,"Success" )
+         expect_match(expt$entity$experimentSamples[[1]]$sampleEntityBarcode,containerSampleLot)
+
+         # create a experient sample from a sample lot
+
+
+
+       secondSample<-CoreAPI::createExperimentSample(r$coreApi,experimentSampleType,sampleLot,newExptbarcode,useVerbose=FALSE)
+
+
+       expt<-CoreAPI::getExperimentSamples(r$coreApi,"TEST EXPERIMENT",newExptbarcode,useVerbose=FALSE)
+
+       expect_match(expt$entity$experimentSamples[[2]]$sampleEntityBarcode,sampleLot)
+
+       #add experiment data
+
+       CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[1]]$barcode,
+                                           assayAttributeValues1,useVerbose=TRUE)
+
+       CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[2]]$barcode,
+                                           assayAttributeValues2,useVerbose=TRUE)
+
+
+        publish<- experimentPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+
+
+
+        unpublish<- experimentUnPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+
+
+
+        expect_match(CoreAPI::logOut(r$coreApi)$success,"Success" )
 
           })
