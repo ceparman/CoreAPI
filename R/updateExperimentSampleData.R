@@ -8,12 +8,14 @@
 #' @param assayAttributeValues assay attributes as a list of key-values pairs
 #' @param useVerbose Use verbose communication for debugging
 #' @export
-#' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
+#' @return RETURN returns a list $entity contains entity information,
+#'        $response contains the entire http response
 #' @examples
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")
 #' login<- CoreAPI::authBasic(api)
-#' newdata<-CoreAPI::updateExperimentSampleData(login$coreApi,entityType,experimentSampleBarcode,assayAtributeValues)
+#' newdata<-CoreAPI::updateExperimentSampleData(login$coreApi,entityType,
+#'                   experimentSampleBarcode,assayAtributeValues)
 #' logOut(login$coreApi ) response<- CoreAPI::authBasic(coreApi)
 #' }
 #'@author Craig Parman

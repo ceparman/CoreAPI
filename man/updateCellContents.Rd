@@ -15,9 +15,9 @@ updateCellContents(coreApi, containerType, containerBarcode, containerCellNum,
 
 \item{containerBarcode}{container barcode}
 
-\item{containerCellNum}{container cel number}
+\item{containerCellNum}{container cell number}
 
-\item{sampleLotBarcode}{barcose of lot to add to cell}
+\item{sampleLotBarcode}{barcode of lot to add to cell}
 
 \item{amount}{amount to add (numeric)}
 
@@ -26,6 +26,8 @@ updateCellContents(coreApi, containerType, containerBarcode, containerCellNum,
 \item{concentration}{(numeric)}
 
 \item{concentrationUnit}{concentration units}
+
+\item{useVerbose}{use verbose communications for debugging}
 }
 \value{
 RETURN returns a list $entity contains updated container information, $response contains the entire http response
@@ -34,7 +36,7 @@ RETURN returns a list $entity contains updated container information, $response 
 \code{updateCellContents} - Puts a cell lot in a container cell.
 }
 \details{
-\code{updateCellContents} puts a cell lot in a container cell
+\code{updateCellContents} Puts a cell lot in a container cell
 }
 \examples{
 \dontrun{

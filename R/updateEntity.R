@@ -10,7 +10,8 @@
 #' @param associations association as a list of dataframes (see details)
 #' @param useVerbose Use verbose communication for debugging
 #' @export
-#' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
+#' @return RETURN returns a list $entity contains entity information, $response contains the
+#'        entire http response
 #' @examples
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")

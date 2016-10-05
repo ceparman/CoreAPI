@@ -19,20 +19,22 @@ updateExperimentContainers(coreApi, containerBarcode, experimentType,
 \item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
-RETURN returns a list $entity contains updated experiment information, $response contains the entire http response
+RETURN returns a list $entity contains updated experiment information,
+        $response contains the entire http response
 }
 \description{
 \code{updateExperimentContainers} - Adds a container to an experiment.
 }
 \details{
-\code{updateExperimentContainers} puts a cell lot in a container cell
+\code{updateExperimentContainers} Adds a container to an experiment.
 }
 \examples{
 \dontrun{
 api<-CoreAPI("PATH TO JSON FILE")
 login<- CoreAPI::authBasic(api)
-update<- CoreAPI::updateExperimentContainers(login$coreApi,containerBarcode, experimentType, newExptbarcode,useVerbose = TRUE)
-logOut(login$coreApi )
+update<- CoreAPI::updateExperimentContainers(login$coreApi,containerBarcode,
+                                            experimentType, newExptbarcode,useVerbose = TRUE)
+                                            logOut(login$coreApi )
 }
 }
 \author{

@@ -7,13 +7,15 @@
 #' @param experimentBarcode barcode of the experiment
 #' @param useVerbose Use verbose communication for debugging
 #' @export
-#' @return RETURN returns a list $entity contains updated experiment information, $response contains the entire http response
+#' @return RETURN returns a list $entity contains updated experiment information,
+#'         $response contains the entire http response
 #' @examples
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")
 #' login<- CoreAPI::authBasic(api)
-#' update<- CoreAPI::updateExperimentContainers(login$coreApi,containerBarcode, experimentType, newExptbarcode,useVerbose = TRUE)
-#' logOut(login$coreApi )
+#' update<- CoreAPI::updateExperimentContainers(login$coreApi,containerBarcode,
+#'                                             experimentType, newExptbarcode,useVerbose = TRUE)
+#'                                             logOut(login$coreApi )
 #' }
 #'@author Craig Parman
 #'@description \code{updateExperimentContainers} - Adds a container to an experiment.
@@ -22,7 +24,8 @@
 
 
 
-updateExperimentContainers<- function(coreApi,containerBarcode, experimentType, experimentBarcode,useVerbose = FALSE)
+updateExperimentContainers<- function(coreApi,containerBarcode, experimentType,
+                                      experimentBarcode,useVerbose = FALSE)
 
 {
 

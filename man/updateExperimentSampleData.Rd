@@ -2,7 +2,7 @@
 % Please edit documentation in R/updateExperimentSampleData.R
 \name{updateExperimentSampleData}
 \alias{updateExperimentSampleData}
-\title{updateExperimentSampleData - Upate experiment sample data.}
+\title{updateExperimentSampleData - Update experiment sample data.}
 \usage{
 updateExperimentSampleData(coreApi, entityType, experimentSamplebarcode,
   assayAttributeValues, useVerbose = FALSE)
@@ -25,13 +25,14 @@ RETURN returns a list $entity contains entity information, $response contains th
 \code{updateExperimentSampleData} Update experiment sample data.
 }
 \details{
-\code{updateExperimentSampleData} Upate experiment sample data.
+\code{updateExperimentSampleData} Update experiment sample data.
 }
 \examples{
 \dontrun{
 api<-CoreAPI("PATH TO JSON FILE")
 login<- CoreAPI::authBasic(api)
-newdata<-CoreAPI::updateExperimentSampleData(login$coreApi,entityType,experimentSampleBarcode,assayAtributeValues)
+newdata<-CoreAPI::updateExperimentSampleData(login$coreApi,entityType,
+                  experimentSampleBarcode,assayAtributeValues)
 logOut(login$coreApi ) response<- CoreAPI::authBasic(coreApi)
 }
 }

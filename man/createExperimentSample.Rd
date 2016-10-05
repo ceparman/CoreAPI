@@ -18,11 +18,11 @@ createExperimentSample(coreApi, entityType, sampleLotBarcode, experimentBarcode,
 
 \item{experimentBarcode}{experiment barcode}
 
-\item{attributeValues}{atributes as a list of key-vlaues pairs}
+\item{attributeValues}{attributes as a list of key-value pairs}
 
-\item{locationId}{location ID for inital location as character string}
+\item{locationId}{location ID for initial location as character string}
 
-\item{projectIds}{project comma seperated list of project IDs as character string}
+\item{projectIds}{project comma separated list of project IDs as character string}
 
 \item{barcode}{User provided barcode as a character string}
 
@@ -34,13 +34,13 @@ createExperimentSample(coreApi, entityType, sampleLotBarcode, experimentBarcode,
 
 \item{timeMin}{min time value}
 
-\item{useVerbose}{Use verbose communitcaion for debuggins}
+\item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
 RETURN returns a list $entity contains entity information, $response contains the entire http response
 }
 \description{
-\code{createExperimentSample} Creates a new sample lot using the parent sample barcode
+\code{createExperimentSample} Creates an experiment sample.
 }
 \details{
 \code{createExperimentSample} Creates an experiment sample.

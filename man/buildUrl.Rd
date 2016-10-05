@@ -9,10 +9,12 @@ buildUrl(coreApi, special = NULL, useVerbose = FALSE)
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}
 
+\item{special}{flag for special sdk endpoints}
+
 \item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
-RETURN Core RESt URL
+RETURN Core REST URL
 }
 \description{
 \code{buildUrl} build URL for call to Core REST API.

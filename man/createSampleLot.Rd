@@ -15,17 +15,17 @@ createSampleLot(coreApi, entityType, sampleBarcode, attributeValues = NULL,
 
 \item{sampleBarcode}{parent sample barcode}
 
-\item{attributeValues}{atributes as a list of key-vlaues pairs}
+\item{attributeValues}{attributes as a list of key-values pairs}
 
-\item{locationId}{location ID for inital location as character string}
+\item{locationId}{location ID for initial location as character string}
 
-\item{projectIds}{project comma seperated list of project IDs as character string}
+\item{projectIds}{project comma separated list of project IDs as character string}
 
 \item{barcode}{User provided barcode as a character string}
 
 \item{associations}{association as a list of dataframes (see details)}
 
-\item{useVerbose}{Use verbose communitcaion for debuggins}
+\item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
 RETURN returns a list $entity contains entity information, $response contains the entire http response

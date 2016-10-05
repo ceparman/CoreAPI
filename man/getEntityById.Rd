@@ -19,7 +19,7 @@ getEntityById(coreApi, entityType, entityId, useVerbose = FALSE)
 returns a list $entity contains entity information, $response contains the entire http response
 }
 \description{
-\code{getEntityById} Get an entity from the LIMS by ID and entyType.
+\code{getEntityById} Get an entity from the LIMS by ID and entityType.
 }
 \details{
 \code{getEntityById} get an entity from the LIMS by ID.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/experimentUnPublish.R
 \name{experimentUnPublish}
 \alias{experimentUnPublish}
-\title{\code{experimentUnPublish} unpublishes an experiment.}
+\title{experimentUnPublish Unpublishes an experiment.}
 \usage{
 experimentUnPublish(coreApi, experimentType, experimentBarcode,
   useVerbose = FALSE)
@@ -20,7 +20,10 @@ experimentUnPublish(coreApi, experimentType, experimentBarcode,
 RETURN returns a list $entity contains updated experiment information, $response contains the entire http response
 }
 \description{
-\code{experimentUnPublish} - publishes an experiment.
+\code{experimentUnPublish} -  Unpublishes an experiment.
+}
+\details{
+\code{experimentUnPublish} Unpublishes an experiment.
 }
 \examples{
 \dontrun{

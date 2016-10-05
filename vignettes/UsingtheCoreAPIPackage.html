@@ -124,7 +124,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 login&lt;-<span class="st"> </span>CoreAPI::<span class="kw">authBasic</span>(api)
 response &lt;-CoreAPI::<span class="kw">apiCall</span>(login$coreApi,body,<span class="st">&quot;json&quot;</span>,,<span class="dt">special=</span><span class="ot">NULL</span>,<span class="dt">useVerbose=</span><span class="ot">FALSE</span>)
 <span class="kw">logOut</span>(login$coreApi )</code></pre></div>
-<p>apiCall calls the function buildUrl to build the url including the jsessionId. Currentlly appending the AWSELB parameter using to optimize calls to systems with mutliple nodes is not supported. This will be address in future releases.</p>
+<p>apiCall calls the function buildUrl to build the url including the jsessionId. Currentlly appending the AWSELB parameter using to optimize calls to systems with mutliple nodes is not supported. This will be addressed in future releases.</p>
 </div>
 <div id="authentication" class="section level2">
 <h2>Authentication</h2>
@@ -155,18 +155,18 @@ CoreAPI::<span class="kw">logOut</span>(response$coreApi)$success</code></pre></
 </div>
 <div id="create-get-and-updating-entities" class="section level2">
 <h2>Create, Get and Updating Entities</h2>
-<p>Three functions handle the create, retrieve, update and delete (CRUD) functionality for most entities. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.</p>
-<p>The function createEntity create an entity. Information about attribute values and associations are passed to the function as lists. Due to the way the API functions the list names must be the actual attribute name and must be in all upper case. In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters. Underscores are supported.</p>
-<p>A the minimal call to create an entity is:</p>
+<p>Three functions handle the create, retrieve, update and delete (CRUD) functionality for most entities. Note that items in the LIMS can never be deleted, but rather inactivated. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.</p>
+<p>The function createEntity creates an entity. Information about attribute values and associations are passed to the function as lists. <strong>Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.</strong> In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters. Underscores are supported.</p>
+<p>The minimal call to create an entity is:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CoreAPI::<span class="kw">createEntity</span>(response$coreApi,entityType)</code></pre></div>
 <p>“response$coreApi”&quot; is the session information and “entityType” can either be a literal string or a character variable with the name of the entity type to be created. The attribute and association values will all default to blank if their values are not passed.</p>
 <p>A list to populate a set of attributes would look like this.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">attributeValues&lt;-<span class="kw">list</span>(<span class="dt">SOURCE_LAB =</span> <span class="st">&quot;New York Medical Center&quot;</span>,<span class="dt">Number =</span> <span class="dv">5</span>,<span class="dt">REQUESTOR=</span><span class="st">&quot;CEP&quot;</span>)</code></pre></div>
 <p>On creation this list is only required to have entries for mandatory attributes. On update only attributes in the list will be updated.</p>
-<p>Associations require a bit moor information. The list required is create with a statement like this.</p>
+<p>Associations require a bit more information. The list required is create with a statement like this.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">associations&lt;-<span class="kw">list</span>(<span class="dt">SAMPLE_ENZYME=</span><span class="kw">data.frame</span>(<span class="dt">name=</span><span class="st">&quot;&quot;</span>,<span class="dt">entitiyId=</span><span class="st">&quot;&quot;</span>,<span class="dt">barcode=</span><span class="st">&quot;ENZ1&quot;</span>))</code></pre></div>
 <p>The association may be identified by either it entityID or its barcode, or both. Again only mandatory association are required for creation. A call to create an entity with attributes and associations would look like this.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">entityType &lt;-<span class="st"> &quot;Pataint Sample&quot;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">entityType &lt;-<span class="st"> &quot;Patient Sample&quot;</span>
 
 attributeValues&lt;-<span class="kw">list</span>(<span class="dt">SOURCE_LAB =</span> <span class="st">&quot;New York Medical Center&quot;</span>,<span class="dt">Number =</span> <span class="dv">5</span>,<span class="dt">REQUESTOR=</span><span class="st">&quot;CEP&quot;</span>)
 
@@ -182,7 +182,7 @@ CoreAPI::<span class="kw">updateEntity</span>(response$coreApi,entityType,entity
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get&lt;-<span class="kw">getEntityByBarcode</span>(response$coreApi, entityType, barcode)
 
 item &lt;-<span class="st"> </span>get$entity</code></pre></div>
-<p>For retivial when on the entityId is known is done with getEntityById</p>
+<p>For retrieval when on the entityId is known is done with getEntityById</p>
 <p>The retrieve an entity use the getEntityByBarcode function. Only the entity type and barcode are required.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get&lt;-<span class="kw">getEntityById</span>(response$coreApi, entityType, <span class="dt">entityId =</span> <span class="st">&quot;ID&quot;</span>)
 
@@ -234,12 +234,10 @@ $stringData
 </div>
 <div id="samples-and-sample-lots" class="section level2">
 <h2>Samples and Sample Lots</h2>
-<p>Samples are created using the createEntity function described above. Sample lots are created with the function createSampleLot. This function is very similar to createEntity but contains an addition parameter for the barcode of the associated sample. A typical create sample and a lot sequence is shown below. If multiple lots are required multiple call to createSampleLot are required.</p>
+<p>Samples are created using the createEntity function described above. Sample lots are created with the function createSampleLot. This function is very similar to createEntity but contains an addition parameter for the barcode of the associated sample. A typical create sample and lot sequence is shown below. If multiple lots are required multiple call to createSampleLot are required.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Create Sample</span>
 
 sample&lt;-<span class="kw">createEntity</span>(response$coreApi, <span class="st">&quot;WHOLE BLOOD&quot;</span>, <span class="dt">attributeValues =</span> attributes)
-
-
 
 <span class="co">#get barcode of the sample</span>
 
@@ -278,18 +276,62 @@ cont_barcode &lt;-<span class="st"> </span>cont$entity$barcode
 
 <span class="co">#fill container</span>
 
-filledContainer&lt;-CoreAPI::<span class="kw">updateCellContents</span>(r$coreApi,containerType, cont_barcode,<span class="st">&quot;1&quot;</span>, lot_barcode,<span class="dv">2</span>, <span class="st">&quot;ml&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;uM&quot;</span>)
+filledContainer&lt;-CoreAPI::<span class="kw">updateCellContents</span>(r$coreApi,containerType, 
+                                             cont_barcode,<span class="st">&quot;1&quot;</span>, lot_barcode,<span class="dv">2</span>, <span class="st">&quot;ml&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;uM&quot;</span>)
    
 <span class="co">#log out    </span>
     
 out&lt;-CoreAPI::<span class="kw">logOut</span>(r$coreApi)</code></pre></div>
-<p>There are also two functions to directly access cell contents and transfer contents. The functions getCellContents gets information about a cell contents using the container barcode and cell number.</p>
+<p>There are also two functions to directly access cell contents and transfer contents. The function getCellContents gets information about a cell contents using the container barcode and cell number.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cell&lt;-<span class="kw">getCellContents</span>(login$coreApi,<span class="st">&quot;VIA9&quot;</span>,<span class="st">&quot;1&quot;</span>)</code></pre></div>
-<p>The function transferCellContents move contents from one cell to another. The cell ID numbers are required for the source and destination cells. This can be obtained by running get on a container. Is important to include valid values for the amount and concentration along with valid units.</p>
+<p>The function transferCellContents moves contents from one cell to another. The cell ID numbers are required for the source and destination cells. These can be obtained by running getCellContents on a container. Is important to include valid values for the amount and concentration along with valid units.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">contCell &lt;-<span class="st"> </span>CoreAPI::<span class="kw">getCellContents</span>(r$coreApi,cont$entity$barcode,<span class="st">&quot;1&quot;</span>)
+
+sourceCellID &lt;-contCell$entity$cells[[<span class="dv">1</span>]]$cellId
+
+cont2Cell&lt;-<span class="st"> </span>CoreAPI::<span class="kw">getCellContents</span>(r$coreApi,cont2$entity$barcode,<span class="st">&quot;1&quot;</span>)
+
+destCellID &lt;-<span class="st"> </span>cont2Cell$entity$cells[[<span class="dv">1</span>]]$cellId
+
+
+move&lt;-<span class="kw">transferCellContents</span>(r$coreApi,sourceCellID,destCellID,amount,concentration,
+                                            amountUnit, concentrationUnit,<span class="dt">useVerbose =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <p>The final function is getContainerLineage. This function used a container barcode as input and returns the parent and child containers as lists.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lineage&lt;-CoreAPI::<span class="kw">getContainerLineage</span>(r$coreApi,cont$entity$barcode)</code></pre></div>
 </div>
 <div id="experiments-and-assays" class="section level2">
 <h2>Experiments and Assays</h2>
+<p>Basic functionality for experiments are accomplished using the createEntity, getEntityByBarcode, and updateEntity functions. Experiment Samples are unique identifiers for sample lots within the context of a specific experiment. These entities are used to track sample lot in and experiment and the data collected on those lot.</p>
+<p>In the general user interface, these are automatically created when you add samples or containers to an experiment. However in the web service, you will need to explicitly create experiment samples or add a container to an experiment in order to create experiment samples. Since you may also need to query or update experiment samples, there are commands for those functions. Once an experiment in created there are two options for adding samples to the experiment.</p>
+<div id="adding-containers-to-a-experiment" class="section level3">
+<h3>Adding containers to a experiment</h3>
+<p>Adding containers to an experiment automatically creates experiment samples. The function updateExperimentContainers adds a container and it contents to an experiment. And sequence to add a container is below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> item &lt;-<span class="st"> </span>CoreAPI::<span class="kw">createEntity</span>(r$coreApi,<span class="dt">entityType =</span> experimentType,
+                               <span class="dt">attributeValues =</span> <span class="kw">list</span>(<span class="dt">TEST_ATTRIBUTE =</span> <span class="st">&quot;a value&quot;</span>),
+                               <span class="dt">associations =</span> <span class="kw">list</span>(<span class="dt">EXPERIMENT_ASSAY=</span>
+                               <span class="kw">data.frame</span>(<span class="dt">name=</span><span class="st">&quot;&quot;</span>,<span class="dt">entityId =</span><span class="st">&quot;&quot;</span>,<span class="dt">barcode=</span>assayBarcode),
+                               <span class="dt">EXPERIMENT_PROTOCOL=</span>
+                               <span class="kw">data.frame</span>(<span class="dt">name=</span><span class="st">&quot;&quot;</span>,<span class="dt">entityId =</span><span class="st">&quot;&quot;</span>,<span class="dt">barcode=</span>protocolBarcode))
+                              )
+
+newExptbarcode &lt;-item$entity$barcode
+
+<span class="co">#add a container which creates an experiment sample</span>
+
+update&lt;-CoreAPI::<span class="kw">updateExperimentContainers</span>(r$coreApi,containerBarcode, experimentType,                                                                     newExptbarcode,<span class="dt">useVerbose =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="adding-sample-lots-to-a-experiment" class="section level3">
+<h3>Adding sample lots to a experiment</h3>
+<p>Adding lot to a experiment done using the createExperimentSample function. This takes a sample lot barcode and experiment barcode as input. And sequence to add a sample lot to an experiment is shown below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">secondSample&lt;-CoreAPI::<span class="kw">createExperimentSample</span>(r$coreApi,experimentSampleType,sampleLot,newExptbarcode,<span class="dt">useVerbose=</span><span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="adding-assay-and-retrieving-data" class="section level3">
+<h3>Adding assay and retrieving data</h3>
+<p>Once sample are added to an experiment assay data is added using the updateExperimentSampleData functions. This function add data to the attributes defined in the assay associated to the experiment. Experiment data can be retrieved using the getExperimentSamples function which returns the sample data along with assay data.</p>
+<p>```(r eval = FALSE)</p>
+<p>exptdata1&lt;-CoreAPI::updateExperimentSampleData(r<span class="math inline">\(coreApi,experimentSampleType,expt\)</span>entity$experimentSamples[[1]] $barcode,assayAttributeValues1,useVerbose=FALSE)</p>
+<p>expt&lt;-CoreAPI::getExperimentSamples(r$coreApi,“TEST EXPERIMENT”,newExptbarcode,useVerbose=FALSE) ```</p>
+</div>
 </div>
 
 

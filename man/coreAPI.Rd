@@ -20,7 +20,6 @@ Creates a object of class coreAPI that contains user name,
          password base url, and account
          if needed. It has slots for account, jsessionID, AWSELB, and base URL.
          Requires a json file that contains the user pwd and account.
-
         \code{#'Creates a object of class coreAPI that contains account information}
         \code{coreAPI("path to json")}.
 The json must include the fields shown below.  The account value may be set to "" if the user only has access to one tenant. \cr \cr
@@ -28,17 +27,17 @@ Example json object.
 
          \code{
 
-               [{ \cr
-                 "user": "xxxxxxxxx",\cr
-                 "pwd": "xxxxxxxxx",\cr
-                 "coreUrl": "xxxxxxx",\cr
-                "account": "xxxxxxxxx",\cr
-               }]\cr
+               [{
+                 "user": "xxxxxxxxx",
+                 "pwd": "xxxxxxxxx",
+                 "coreUrl": "xxxxxxx",
+                "account": "xxxxxxxxx",
+               }]
           }
 }
 \examples{
 \dontrun{
-  api<-coreApi("/home")
+api<-coreApi("/home")
 }
 }
 

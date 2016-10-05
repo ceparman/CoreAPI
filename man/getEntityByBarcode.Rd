@@ -19,10 +19,10 @@ getEntityByBarcode(coreApi, entityType, barcode, useVerbose = FALSE)
 returns a list $entity contains entity information, $response contains the entire http response
 }
 \description{
-\code{getEntityByBarcode} Get an entity from the LIMS by barcode and entyType.
+\code{getEntityByBarcode} Get an entity from the LIMS by barcode and entityType.
 }
 \details{
-\code{getEntityByBarcode} get an entity from the LIMS by barcode and
+\code{getEntityByBarcode} get an entity from the LIMS by barcode
 }
 \examples{
 \dontrun{

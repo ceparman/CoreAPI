@@ -22,16 +22,16 @@ transferCellContents(coreApi, sourceCellID, destCellID, amount, concentration,
 
 \item{concentrationUnit}{valid units for concentration}
 
-\item{useVerbose}{use verbode messaging for debugging}
+\item{useVerbose}{use verbose messaging for debugging}
 }
 \value{
 RETURN returns a list $entity contains cell information, $response contains the entire http response
 }
 \description{
-\code{transferCellContents} - Get information about container cell contents.
+\code{transferCellContents} - Transfers contents from one cell to another.
 }
 \details{
-\code{transferCellContents} puts a cell lot in a container cell
+\code{transferCellContents} Transfers contents from one cell to another.
 }
 \examples{
 \dontrun{

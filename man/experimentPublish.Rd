@@ -2,7 +2,7 @@
 % Please edit documentation in R/experimentPublish.R
 \name{experimentPublish}
 \alias{experimentPublish}
-\title{\code{experimentPublish} publishes an experiment.}
+\title{experimentPublish Publishes an experiment.}
 \usage{
 experimentPublish(coreApi, experimentType, experimentBarcode,
   useVerbose = FALSE)
@@ -20,7 +20,10 @@ experimentPublish(coreApi, experimentType, experimentBarcode,
 RETURN returns a list $entity contains updated experiment information, $response contains the entire http response
 }
 \description{
-\code{experimentPublish} - publishes an experiment.
+\code{experimentPublish} - Publishes an experiment.
+}
+\details{
+\code{experimentPublish} Publishes an experiment.
 }
 \examples{
 \dontrun{

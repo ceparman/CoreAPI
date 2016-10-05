@@ -10,8 +10,10 @@
 #' @param amountUnit units
 #' @param concentration (numeric)
 #' @param concentrationUnit concentration units
+#' @param useVerbose use verbose communications for debugging
 #' @export
-#' @return RETURN returns a list $entity contains updated container information, $response contains the entire http response
+#' @return RETURN returns a list $entity contains updated container
+#'         information, $response contains the entire http response
 #' @examples
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")
@@ -26,7 +28,8 @@
 
 
 
-updateCellContents<-function (coreApi,containerType, containerBarcode, containerCellNum, sampleLotBarcode, amount, amountUnit, concentration, concentrationUnit,useVerbose = FALSE)
+updateCellContents<-function (coreApi,containerType, containerBarcode, containerCellNum,
+                              sampleLotBarcode, amount, amountUnit, concentration, concentrationUnit,useVerbose = FALSE)
 
 {
 

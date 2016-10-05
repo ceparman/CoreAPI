@@ -35,7 +35,7 @@
 
 ## ----eval = FALSE--------------------------------------------------------
 #  
-#  entityType <- "Pataint Sample"
+#  entityType <- "Patient Sample"
 #  
 #  attributeValues<-list(SOURCE_LAB = "New York Medical Center",Number = 5,REQUESTOR="CEP")
 #  
@@ -88,8 +88,6 @@
 #  
 #  sample<-createEntity(response$coreApi, "WHOLE BLOOD", attributeValues = attributes)
 #  
-#  
-#  
 #  #get barcode of the sample
 #  
 #  sampleBC <-sample$entity$barcode
@@ -127,7 +125,8 @@
 #  
 #  #fill container
 #  
-#  filledContainer<-CoreAPI::updateCellContents(r$coreApi,containerType, cont_barcode,"1", lot_barcode,2, "ml", 3, "uM")
+#  filledContainer<-CoreAPI::updateCellContents(r$coreApi,containerType,
+#                                               cont_barcode,"1", lot_barcode,2, "ml", 3, "uM")
 #  
 #  #log out
 #  
@@ -138,5 +137,49 @@
 ## ----eval = FALSE--------------------------------------------------------
 #  
 #  cell<-getCellContents(login$coreApi,"VIA9","1")
+#  
+
+## ----eval = FALSE--------------------------------------------------------
+#  
+#  contCell <- CoreAPI::getCellContents(r$coreApi,cont$entity$barcode,"1")
+#  
+#  sourceCellID <-contCell$entity$cells[[1]]$cellId
+#  
+#  cont2Cell<- CoreAPI::getCellContents(r$coreApi,cont2$entity$barcode,"1")
+#  
+#  destCellID <- cont2Cell$entity$cells[[1]]$cellId
+#  
+#  
+#  move<-transferCellContents(r$coreApi,sourceCellID,destCellID,amount,concentration,
+#                                              amountUnit, concentrationUnit,useVerbose = FALSE)
+#  
+#  
+
+## ----eval = FALSE--------------------------------------------------------
+#  
+#  lineage<-CoreAPI::getContainerLineage(r$coreApi,cont$entity$barcode)
+#  
+
+## ----eval=FALSE----------------------------------------------------------
+#  
+#   item <- CoreAPI::createEntity(r$coreApi,entityType = experimentType,
+#                                 attributeValues = list(TEST_ATTRIBUTE = "a value"),
+#                                 associations = list(EXPERIMENT_ASSAY=
+#                                 data.frame(name="",entityId ="",barcode=assayBarcode),
+#                                 EXPERIMENT_PROTOCOL=
+#                                 data.frame(name="",entityId ="",barcode=protocolBarcode))
+#                                )
+#  
+#  newExptbarcode <-item$entity$barcode
+#  
+#  #add a container which creates an experiment sample
+#  
+#  update<-CoreAPI::updateExperimentContainers(r$coreApi,containerBarcode, experimentType,                                                                     newExptbarcode,useVerbose = FALSE)
+#  
+#  
+
+## ----eval = FALSE--------------------------------------------------------
+#  
+#  secondSample<-CoreAPI::createExperimentSample(r$coreApi,experimentSampleType,sampleLot,newExptbarcode,useVerbose=FALSE)
 #  
 
