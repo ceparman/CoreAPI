@@ -2,7 +2,7 @@
 % Please edit documentation in R/createEntity.R
 \name{createEntity}
 \alias{createEntity}
-\title{createEntity - Create a new instance of a entitiy.}
+\title{createEntity - Create a new instance of a entity.}
 \usage{
 createEntity(coreApi, entityType, attributeValues = NULL, locationId = NULL,
   projectIds = NULL, barcode = NULL, associations = NULL,
@@ -13,17 +13,17 @@ createEntity(coreApi, entityType, attributeValues = NULL, locationId = NULL,
 
 \item{entityType}{entity type to get as character string}
 
-\item{attributeValues}{atributes as a list of key-vlaues pairs}
+\item{attributeValues}{attributes as a list of key-values pairs}
 
-\item{locationId}{location ID for inital location as character string}
+\item{locationId}{location ID for initial location as character string}
 
-\item{projectIds}{project comma seperated list of project IDs as character string}
+\item{projectIds}{project comma separated list of project IDs as character string}
 
 \item{barcode}{User provided barcode as a character string}
 
-\item{associations}{association as a list of dataframes (see details)}
+\item{associations}{association as a list of dataframes (see vignette for details)}
 
-\item{useVerbose}{Use verbose communitcaion for debuggins}
+\item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
 RETURN returns a list $entity contains entity information, $response contains the entire http response
@@ -32,13 +32,13 @@ RETURN returns a list $entity contains entity information, $response contains th
 \code{createEntity} Creates a new entity instance. Required inputs are url, jsessionId and entityType.
 }
 \details{
-\code{createEntity} Creates a new entity instance.
+\code{createEntity} Creates a new instance of an entity.
 }
 \examples{
 \dontrun{
 api<-CoreAPI("PATH TO JSON FILE")
 login<- CoreAPI::authBasic(api)
-item<-createEntityt(login$coreApi,"Entity_Type")
+item<-CoreAPI::createEntity(login$coreApi,"Entity_Type")
 logOut(login$coreApi )
 }
 }

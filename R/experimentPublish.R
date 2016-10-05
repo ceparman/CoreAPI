@@ -1,5 +1,6 @@
+#'experimentPublish Publishes an experiment.
 #'
-#' \code{experimentPublish} publishes an experiment.
+#' \code{experimentPublish} Publishes an experiment.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param experimentType experiment entity type
 #' @param experimentBarcode barcode of the experiment
@@ -14,7 +15,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{experimentPublish} - publishes an experiment.
+#'@description \code{experimentPublish} - Publishes an experiment.
 
 
 

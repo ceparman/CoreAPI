@@ -2,7 +2,7 @@
 % Please edit documentation in R/updateEntity.R
 \name{updateEntity}
 \alias{updateEntity}
-\title{updateEntity - Create a new instance of a entity.}
+\title{updateEntity - Updates an instance of a entity.}
 \usage{
 updateEntity(coreApi, entityType, barcode, attributeValues = NULL,
   locationId = NULL, projectIds = NULL, associations = NULL,
@@ -29,10 +29,10 @@ updateEntity(coreApi, entityType, barcode, attributeValues = NULL,
 RETURN returns a list $entity contains entity information, $response contains the entire http response
 }
 \description{
-\code{updateEntity} Creates a new entity instance.
+\code{updateEntity} Updates an instance of a entity.
 }
 \details{
-\code{updateEntity} Creates a new entity instance.
+\code{updateEntity}  Updates an instance of a entity.
 }
 \examples{
 \dontrun{

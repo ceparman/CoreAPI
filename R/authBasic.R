@@ -1,12 +1,12 @@
 #'authBasic - Authenticates against the LIMS using basic authentication.
 #'
-#'\code{authBasic} authenticates to Core API
+#'\code{authBasic} Authenticates to Core API
 #'
-#'@param coreApi object of class coreApi that contains user, password,  baseURL and \cr
+#'@param coreApi object of class coreApi that contains user, password,  baseURL and
 #'        account. account is required if user has access to multiple tenants.
 #'@param useVerbose - Use verbose settings for HTTP commands
-#'@return returns a list with coreApi which returns the passed coreApi object with  jsessionid, \cr
-#'            awselb and employeeid populated, $response contains the entire http response \cr
+#'@return returns a list with coreApi which returns the passed coreApi object with  jsessionid,
+#'            awselb and employeeid populated, $response contains the entire http response
 #'@export
 #'@examples
 #'\dontrun{

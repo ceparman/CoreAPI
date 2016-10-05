@@ -17,7 +17,7 @@
 
 
 ### Log out
-#
+
 logOut<-function(coreApi, useVerbose = FALSE)
 
 {

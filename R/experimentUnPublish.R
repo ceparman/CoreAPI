@@ -1,5 +1,6 @@
+#'experimentUnPublish Unpublishes an experiment.
 #'
-#' \code{experimentUnPublish} unpublishes an experiment.
+#' \code{experimentUnPublish} Unpublishes an experiment.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param experimentType experiment entity type
 #' @param experimentBarcode barcode of the experiment
@@ -14,8 +15,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{experimentUnPublish} - publishes an experiment.
-
+#'@description \code{experimentUnPublish} -  Unpublishes an experiment.
 
 
 

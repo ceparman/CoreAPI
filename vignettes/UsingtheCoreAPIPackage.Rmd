@@ -23,9 +23,35 @@ All functions that make a HTTP call will return a list with two objects. The fir
 Note:  All of the functionality and limitations for this version of the CoreAPI refer to the first version on the Core REST API, and not the ODATA compliant version.  The package will be extended to cover the new functionality at some point.
 
 
+##Function apiCall
+
+
+The function apiCall is the function that makes all posts the the Core API.  This function can be used to json directly to the API. The function is not intended to be call directly buy as part of a higher level functions.  However is can be useful for debugging of one off call.  The parameters are 
+
+Parameter    | Description                                
+-------------| ---------------------------------------
+coreApi  | coreApi object with valid jsessionid and url
+body     | body for request
+encode   | encoding to use for request option are "multipart", "form", "json", "raw"
+special  | passed to buildUrl for special sdk endpoints such as login
+useVerbose |  Use verbose communication for debugging
+
+ This function can be used to pass json generated the the CORE REST API tool.  The coreApi object is generate with the coreApi function described below.  Here is a typical example.
+
+```{r eval = FALSE}
+api<-CoreAPI("PATH TO JSON FILE")
+login<- CoreAPI::authBasic(api)
+response <-CoreAPI::apiCall(login$coreApi,body,"json",,special=NULL,useVerbose=FALSE)
+logOut(login$coreApi )
+```
+
+apiCall calls the function buildUrl to build the url including the jsessionId.  Currentlly appending the AWSELB parameter using to optimize calls to systems with mutliple nodes is not supported.  This will be addressed in future releases.
+
+
+
 ##Authentication
 
-The current API supports basic authentication.  Once the user is authenticated a jsession id value is appended to the web calls.  The details are in the CORE LIMS documentation here:
+The current API supports basic authentication.  Once the user is authenticated a jsession id value is appended to all urls for API calls.  The details are in the CORE LIMS documentation here:
 
 https://documentation.corelims.com/docs/v5/SDK/JSON_Web_Service/Best_Practices_for_API_Usage.htm
 
@@ -39,7 +65,7 @@ The authentication process requires two functions calls.  The first step is to r
                 }]                             
         
 
-Values for the first three parameters and required and the account entry is only required if the user has access to more than one tenant. If the account parameter is not required pas a zero length string "" . This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.
+Values for the first three parameters and required and the account entry is only required if the user has access to more than one tenant. If the account parameter is not required pas a zero length string "". This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.
 
 
 ```{r eval = FALSE}
@@ -65,11 +91,11 @@ When to log out is dependent on the workflow. The basic workflow for any interac
 
 ##Create, Get and Updating Entities
 
-Three functions handle the create, retrieve, update and delete (CRUD) functionality for most entities. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.
+Three functions handle the create, retrieve, update and delete (CRUD) functionality for most entities. Note that items in the LIMS can never be deleted, but rather inactivated. Certain entities require specialized functions because of additional parameters specific to the entity. For example sample lots require information about the parent sample to create the proper linkage. However for most entities the three functions outlined in the section will handle the CRUD functionality.
 
-The function createEntity create an entity.  Information about attribute values and associations are passed to the function as lists.   Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.  In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters. Underscores are supported.
+The function createEntity creates an entity.  Information about attribute values and associations are passed to the function as lists.   **Due to the way the API functions the list names must be the actual attribute name and must be in all upper case.**  In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters. Underscores are supported.
 
-A the minimal call to create an entity is:
+The minimal call to create an entity is:
 
 ```{r eval = FALSE}
 
@@ -88,7 +114,7 @@ attributeValues<-list(SOURCE_LAB = "New York Medical Center",Number = 5,REQUESTO
 ```
 On creation this list is only required to have entries for mandatory attributes.  On update only attributes in the list will be updated.  
 
-Associations require a bit moor information.  The list required is create with a statement like this.
+Associations require a bit more information.  The list required is create with a statement like this.
 
 ```{r eval= FALSE}
 associations<-list(SAMPLE_ENZYME=data.frame(name="",entitiyId="",barcode="ENZ1"))
@@ -97,7 +123,7 @@ The association may be identified by either it entityID or its barcode, or both.
 
 ```{r eval = FALSE}
 
-entityType <- "Pataint Sample"
+entityType <- "Patient Sample"
 
 attributeValues<-list(SOURCE_LAB = "New York Medical Center",Number = 5,REQUESTOR="CEP")
 
@@ -126,7 +152,7 @@ get<-getEntityByBarcode(response$coreApi, entityType, barcode)
 item <- get$entity
 ```
 
-For retivial when on the entityId is known is done with getEntityById
+For retrieval when on the entityId is known is done with getEntityById
 
 
 The retrieve an entity use the getEntityByBarcode function.  Only the entity type and barcode are required.
@@ -142,7 +168,7 @@ item <- get$entity
 
 Other parameters, passed as strings, that can be used in create and update are:
 
- parameter | value 
+ parameter | value                                                   
 -----------|------
 locationId | location id
 projectIds | project ID
@@ -155,7 +181,7 @@ See the individual function documentation for details.
 ##Attaching Files
 
 
-Files may be attached either directly to the entity or in a file type attribute. A single function will handle both cases. If the file is to be attached directly to the entity the targetAttributeName value is set to an empty string.  Otherwise the targetAttributeName is set to a valid file attribute.  The path to the local file is passed as a string in the parameter filepath. If multiple file need to be attached, multiple function call will be required. 
+Files may be attached either directly to an entity or in a file type attribute. A single function will handle both cases. If the file is to be attached directly to the entity the targetAttributeName value is set to an empty string.  Otherwise the targetAttributeName is set to a valid file attribute on the entity.  The path to the local file is passed as a string in the parameter filepath. If multiple files need to be attached, multiple function call will be required. 
 
 ```{r eval = FALSE}
 
@@ -179,12 +205,12 @@ $stringData
 
 ```
 
-There is no API functionality to see if a file is attached to the entity. There also is not currently any API functionality to retrieve file attached to an attribute.  The download URL will only work when called from a browser that has been authenticated using the GUI interface.  A workaround is possible and will be included it a future release.
+There is no API functionality to see if a file is attached to the entity. Also currently there is not any API functionality to retrieve a file attached to an attribute.  The download URL will only work when called from a browser that has been authenticated using the GUI interface.  A workaround is possible and will be included it a future release.
 
 
 ##Samples and Sample Lots
 
-Samples are created using the createEntity function described above.  Sample lots are created with the function createSampleLot.  This function is very similar to createEntity but contains an addition parameter for the barcode of the associated sample.  A typical create sample and a lot sequence is shown below.  If multiple lots are required multiple call to createSampleLot are required.
+Samples are created using the createEntity function described above.  Sample lots are created with the function createSampleLot.  This function is very similar to createEntity but contains an addition parameter for the barcode of the associated sample.  A typical create sample and lot sequence is shown below.  If multiple lots are required multiple call to createSampleLot are required.
 
 
 ```{r eval = FALSE}
@@ -193,8 +219,6 @@ Samples are created using the createEntity function described above.  Sample lot
 #Create Sample
 
 sample<-createEntity(response$coreApi, "WHOLE BLOOD", attributeValues = attributes)
-
-
 
 #get barcode of the sample
 
@@ -244,7 +268,8 @@ cont_barcode <- cont$entity$barcode
 
 #fill container
 
-filledContainer<-CoreAPI::updateCellContents(r$coreApi,containerType, cont_barcode,"1", lot_barcode,2, "ml", 3, "uM")
+filledContainer<-CoreAPI::updateCellContents(r$coreApi,containerType, 
+                                             cont_barcode,"1", lot_barcode,2, "ml", 3, "uM")
    
 #log out    
     
@@ -254,7 +279,7 @@ out<-CoreAPI::logOut(r$coreApi)
 ```
 
 
-There are also two functions to directly access cell contents and transfer contents.  The functions getCellContents gets information about a cell contents using the container barcode and cell number. 
+There are also two functions to directly access cell contents and transfer contents.  The function getCellContents gets information about a cell contents using the container barcode and cell number. 
 
 ```{r eval = FALSE}
 
@@ -262,14 +287,92 @@ cell<-getCellContents(login$coreApi,"VIA9","1")
 
 ```
 
-The function transferCellContents move contents from one cell to another.  The cell ID numbers are required for the source and destination cells.  This can be obtained by running get on a container.  Is important to include valid values for the amount and concentration along with valid units. 
+
+The function transferCellContents moves contents from one cell to another.  The cell ID numbers are required for the source and destination cells.  These can be obtained by running getCellContents on a container.  Is important to include valid values for the amount and concentration along with valid units. 
+
+
+
+```{r eval = FALSE}
+
+contCell <- CoreAPI::getCellContents(r$coreApi,cont$entity$barcode,"1")
+
+sourceCellID <-contCell$entity$cells[[1]]$cellId
+
+cont2Cell<- CoreAPI::getCellContents(r$coreApi,cont2$entity$barcode,"1")
+
+destCellID <- cont2Cell$entity$cells[[1]]$cellId
+
+
+move<-transferCellContents(r$coreApi,sourceCellID,destCellID,amount,concentration,
+                                            amountUnit, concentrationUnit,useVerbose = FALSE)
+
+
+```
 
 
 The final function is getContainerLineage.  This function used a container barcode as input and returns the parent and child containers as lists.
 
+``` {r eval = FALSE}
+
+lineage<-CoreAPI::getContainerLineage(r$coreApi,cont$entity$barcode)
+
+```
 
 
 
 
 ##Experiments and Assays
+
+
+Basic functionality for experiments are accomplished using the createEntity, getEntityByBarcode, and updateEntity functions.  Experiment Samples are unique identifiers for sample lots within the context of a specific experiment.  These entities are used to track sample lot in and experiment and the data collected on those lot.
+
+In the general user interface, these are automatically created when you add samples or containers to an experiment. However in the web service, you will need to explicitly create experiment samples or add a container to an experiment in order to create experiment samples. Since you may also need to query or update experiment samples, there are commands for those functions.   Once an experiment in created there are two options for adding samples to the experiment.
+
+###Adding containers to a experiment
+
+Adding containers to an experiment automatically creates experiment samples.  The function updateExperimentContainers adds a container and it contents to an experiment. And sequence to add a container is below.
+
+
+```{r eval=FALSE}
+
+ item <- CoreAPI::createEntity(r$coreApi,entityType = experimentType,
+                               attributeValues = list(TEST_ATTRIBUTE = "a value"),
+                               associations = list(EXPERIMENT_ASSAY=
+                               data.frame(name="",entityId ="",barcode=assayBarcode),
+                               EXPERIMENT_PROTOCOL=
+                               data.frame(name="",entityId ="",barcode=protocolBarcode))
+                              )
+
+newExptbarcode <-item$entity$barcode
+
+#add a container which creates an experiment sample
+
+update<-CoreAPI::updateExperimentContainers(r$coreApi,containerBarcode, experimentType,                                                                     newExptbarcode,useVerbose = FALSE)
+ 
+
+```
+###Adding sample lots to a experiment
+
+Adding lot to a experiment done using the createExperimentSample function.  This takes a sample lot barcode and experiment barcode as input. And sequence to add a sample lot to an experiment is shown below.
+
+```{r eval = FALSE}
+
+secondSample<-CoreAPI::createExperimentSample(r$coreApi,experimentSampleType,sampleLot,newExptbarcode,useVerbose=FALSE)
+
+```
+
+
+###Adding assay and retrieving data
+
+Once sample are added to an experiment assay data is added using the updateExperimentSampleData functions.  This function add data to the attributes defined in the assay associated to the experiment. Experiment data can be retrieved using the getExperimentSamples function which returns the sample data along with assay data.
+
+```(r eval = FALSE)
+
+exptdata1<-CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[1]]                                                $barcode,assayAttributeValues1,useVerbose=FALSE)
+
+
+expt<-CoreAPI::getExperimentSamples(r$coreApi,"TEST EXPERIMENT",newExptbarcode,useVerbose=FALSE)
+```
+
+
 

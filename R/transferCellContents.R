@@ -1,6 +1,6 @@
 #' transferCellContents -  Transfers contents from one cell to another.
 #'
-#' \code{transferCellContents} puts a cell lot in a container cell
+#' \code{transferCellContents} Transfers contents from one cell to another.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param sourceCellID source cell ID
 #' @param destCellID destination cell ID
@@ -8,7 +8,7 @@
 #' @param concentration concentration for destination cell
 #' @param amountUnit valid units for amount
 #' @param concentrationUnit valid units for concentration
-#' @param useVerbose use verbode messaging for debugging
+#' @param useVerbose use verbose messaging for debugging
 #' @export
 #' @return RETURN returns a list $entity contains cell information, $response contains the entire http response
 #' @examples
@@ -19,7 +19,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{transferCellContents} - Get information about container cell contents.
+#'@description \code{transferCellContents} - Transfers contents from one cell to another.
 
 
 

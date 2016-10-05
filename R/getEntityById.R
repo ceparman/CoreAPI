@@ -16,9 +16,7 @@
 #' logOut(login$coreApi)
 #' }
 #'@author Craig Parman
-#'@description \code{getEntityById} Get an entity from the LIMS by ID and entyType.
-
-
+#'@description \code{getEntityById} Get an entity from the LIMS by ID and entityType.
 
 getEntityById<-function (coreApi,entityType,entityId,useVerbose=FALSE)
 

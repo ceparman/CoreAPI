@@ -1,6 +1,6 @@
 #' getEntityByBarcode - Get an entity from the LIMS by barcode.
 #'
-#'\code{getEntityByBarcode} get an entity from the LIMS by barcode and
+#'\code{getEntityByBarcode} get an entity from the LIMS by barcode
 #'
 #'@param coreApi coreApi object with valid jsessionid
 #'@param entityType entity type to get
@@ -16,7 +16,7 @@
 #' logOut(login$coreApi)
 #' }
 #'@author Craig Parman
-#'@description \code{getEntityByBarcode} Get an entity from the LIMS by barcode and entyType.
+#'@description \code{getEntityByBarcode} Get an entity from the LIMS by barcode and entityType.
 
 
 

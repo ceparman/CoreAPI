@@ -11,20 +11,20 @@ apiCall(coreApi, body, encode, special = NULL, useVerbose = FALSE)
 
 \item{body}{body for request}
 
-\item{encode}{encodeing to use for request option are "multipart", "form", "json", "raw"}
+\item{encode}{encoding to use for request option are "multipart", "form", "json", "raw"}
 
-\item{special}{- pased to buildUrl for special sdk endpoints}
+\item{special}{- passed to buildUrl for special sdk endpoints}
 
-\item{useVerbose}{Use verbose communitcation for debugging}
+\item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
 RETURN return the entire http response
 }
 \description{
-\code{apiCall}  base call to Core REST API.
+\code{apiCall}  Base call to Core REST API.
 }
 \details{
-\code{apiCall}  base call to Core REST API.
+\code{apiCall}  Base call to Core REST API.
 }
 \examples{
 \dontrun{

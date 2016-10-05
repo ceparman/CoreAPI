@@ -1,11 +1,11 @@
 #' updateCellContents -  Puts a cell lot in a container cell.
 #'
-#' \code{updateCellContents} puts a cell lot in a container cell
+#' \code{updateCellContents} Puts a cell lot in a container cell
 #' @param coreApi coreApi object with valid jsessionid
 #' @param containerType container entity type
 #' @param containerBarcode container barcode
-#' @param containerCellNum container cel number
-#' @param sampleLotBarcode barcose of lot to add to cell
+#' @param containerCellNum container cell number
+#' @param sampleLotBarcode barcode of lot to add to cell
 #' @param amount amount to add (numeric)
 #' @param amountUnit units
 #' @param concentration (numeric)

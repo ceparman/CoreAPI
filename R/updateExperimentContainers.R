@@ -1,6 +1,6 @@
 #' updateExperimentContainers -  Adds a container to an experiment.
 #'
-#' \code{updateExperimentContainers} puts a cell lot in a container cell
+#' \code{updateExperimentContainers} Adds a container to an experiment.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param experimentType experiment entity type
 #' @param containerBarcode barcode of container that has a cell lot in it

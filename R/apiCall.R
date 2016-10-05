@@ -1,11 +1,11 @@
 #' apiCall - Base call to Core REST API.
 #'
-#' \code{apiCall}  base call to Core REST API.
+#' \code{apiCall}  Base call to Core REST API.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param body body for request
-#' @param encode encodeing to use for request option are "multipart", "form", "json", "raw"
-#' @param special - pased to buildUrl for special sdk endpoints
-#' @param useVerbose  Use verbose communitcation for debugging
+#' @param encode encoding to use for request option are "multipart", "form", "json", "raw"
+#' @param special - passed to buildUrl for special sdk endpoints
+#' @param useVerbose  Use verbose communication for debugging
 #' @export
 #' @return RETURN return the entire http response
 #' @examples
@@ -16,8 +16,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{apiCall}  base call to Core REST API.
-
+#'@description \code{apiCall}  Base call to Core REST API.
 
 
 apiCall<-function(coreApi,body,encode,special=NULL,useVerbose=FALSE)

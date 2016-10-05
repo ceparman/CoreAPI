@@ -1,0 +1,60 @@
+---
+title: "Build and Test Enviroment"
+author: "Craig Parman"
+date: "10/5/2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##Introduction
+
+This document lists the R version and package vesions used in the development of the CoreAPI package.  
+It is built automatically and refects the latest vesions used. 
+
+## CoreAPI Package Information
+
+```{r echo = FALSE }
+
+p<-packageDescription("CoreAPI")
+
+
+show(p)
+
+```
+
+##R Environment
+
+
+```{r echo = FALSE}
+
+library('knitr')
+s<-sessionInfo()
+envrio<-as.data.frame(s$R.version)
+
+##R Environment
+
+kable(  envrio[,1:5] , format = "markdown")
+kable(  envrio[,6:10] , format = "markdown")
+kable(  envrio[,11:length(envrio)] , format = "markdown")
+
+```
+
+
+##Required Package Version
+
+
+
+```{r echo = FALSE}
+library('knitr')
+d<-packageDescription("CoreAPI")
+imports<-strsplit(d$Imports,",")[[1]]
+n<-length(imports)
+versions<-sapply(imports,function(x) packageDescription(x)$Version)
+
+importframe<-data.frame(package = imports, vesion = versions)
+
+kable(importframe , format = "markdown")
+
+```

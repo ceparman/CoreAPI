@@ -2,9 +2,10 @@
 #'
 #' \code{apiCall}  base call to Core REST API.
 #' @param coreApi coreApi object with valid jsessionid
+#' @param special flag for special sdk endpoints
 #' @param useVerbose Use verbose communication for debugging
 #' @export
-#' @return RETURN Core RESt URL
+#' @return RETURN Core REST URL
 #' @examples
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")

@@ -1,4 +1,10 @@
 ## ----eval = FALSE--------------------------------------------------------
+#  api<-CoreAPI("PATH TO JSON FILE")
+#  login<- CoreAPI::authBasic(api)
+#  response <-CoreAPI::apiCall(login$coreApi,body,"json",,special=NULL,useVerbose=FALSE)
+#  logOut(login$coreApi )
+
+## ----eval = FALSE--------------------------------------------------------
 #  
 #  #get login information
 #  

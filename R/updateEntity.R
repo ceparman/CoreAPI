@@ -1,6 +1,6 @@
-#' updateEntity - Create a new instance of a entity.
+#' updateEntity - Updates an instance of a entity.
 #'
-#' \code{updateEntity} Creates a new entity instance.
+#' \code{updateEntity}  Updates an instance of a entity.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string
 #' @param barcode User provided barcode as a character string
@@ -19,8 +19,7 @@
 #' logOut(login$coreApi ) response<- CoreAPI::authBasic(coreApi)
 #' }
 #'@author Craig Parman
-#'@description \code{updateEntity} Creates a new entity instance.
-
+#'@description \code{updateEntity} Updates an instance of a entity.
 
 
 

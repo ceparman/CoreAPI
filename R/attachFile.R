@@ -1,6 +1,6 @@
-#' attachFile - attaches a file to an entitiy or attribute.
+#' attachFile - Attaches a file to an entity or file attribute.
 #'
-#' \code{attachFile}  attaches a file to an entitiy or attribute.
+#' \code{attachFile}  Attaches a file to an entity or file attribute.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param barcode User provided barcode as a character string
 #' @param filename name to use for the attached file
@@ -18,8 +18,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{attachFile} Attaches a file to entity identified by barcode or one ot its attributes.
-
+#'@description \code{attachFile} Attaches a file to entity identified by barcode or one of its attributes.
 
 
 
@@ -28,7 +27,7 @@ attachFile<-function (coreApi,barcode,filename,filepath,targetAttributeName="",u
 
 {
 
-  ##Notes
+
 
 
   if(!file.exists(filepath)) {

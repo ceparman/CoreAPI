@@ -5,15 +5,15 @@
 #' @param entityType entity type to get as character string
 #' @param sampleLotBarcode parent sample barcode
 #' @param experimentBarcode experiment barcode
-#' @param attributeValues atributes as a list of key-vlaues pairs
-#' @param locationId location ID for inital location as character string
-#' @param projectIds project comma seperated list of project IDs as character string
+#' @param attributeValues attributes as a list of key-value pairs
+#' @param locationId location ID for initial location as character string
+#' @param projectIds project comma separated list of project IDs as character string
 #' @param barcode User provided barcode as a character string
 #' @param associations association as a list of dataframes (see details)
 #' @param concentration sample lot concentration
 #' @param concentrationUnit concentration unit
 #' @param timeMin min time value
-#' @param useVerbose Use verbose communitcaion for debuggins
+#' @param useVerbose Use verbose communication for debugging
 #' @export
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples
@@ -24,7 +24,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{createExperimentSample} Creates a new sample lot using the parent sample barcode
+#'@description \code{createExperimentSample} Creates an experiment sample.
 
 
 

@@ -1,9 +1,9 @@
-#' getCellContents -  Get information about container cell contents.
+#' getCellContents -  Gets information about container cell contents.
 #'
-#' \code{getCellContents} puts a cell lot in a container cell
+#' \code{getCellContents} Gets information about container cell contents.
 #' @param coreApi coreApi object with valid jsessionid
 #' @param containerBarcode container barcode
-#' @param containerCellNum container cel number as a string
+#' @param containerCellNum container cell number as a string
 #' @param useVerbose  Use verbose communication for debugging
 #' @export
 #' @return RETURN returns a list $entity contains cell information, $response contains the entire http response
@@ -15,7 +15,7 @@
 #' logOut(login$coreApi )
 #' }
 #'@author Craig Parman
-#'@description \code{getCellContents} - Get information about container cell contents.
+#'@description \code{getCellContents} - Gets information about container cell contents.
 
 
 

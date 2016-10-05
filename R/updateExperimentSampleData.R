@@ -1,6 +1,6 @@
-#' updateExperimentSampleData - Upate experiment sample data.
+#' updateExperimentSampleData - Update experiment sample data.
 #'
-#' \code{updateExperimentSampleData} Upate experiment sample data.
+#' \code{updateExperimentSampleData} Update experiment sample data.
 #'
 #' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string

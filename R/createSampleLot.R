@@ -4,12 +4,12 @@
 #' @param coreApi coreApi object with valid jsessionid
 #' @param entityType entity type to get as character string
 #' @param sampleBarcode parent sample barcode
-#' @param attributeValues atributes as a list of key-vlaues pairs
-#' @param locationId location ID for inital location as character string
-#' @param projectIds project comma seperated list of project IDs as character string
+#' @param attributeValues attributes as a list of key-values pairs
+#' @param locationId location ID for initial location as character string
+#' @param projectIds project comma separated list of project IDs as character string
 #' @param barcode User provided barcode as a character string
 #' @param associations association as a list of dataframes (see details)
-#' @param useVerbose Use verbose communitcaion for debuggins
+#' @param useVerbose Use verbose communication for debugging
 #' @export
 #' @return RETURN returns a list $entity contains entity information, $response contains the entire http response
 #' @examples

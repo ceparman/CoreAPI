@@ -12,7 +12,7 @@
 
 <meta name="author" content="Craig Parman" />
 
-<meta name="date" content="2016-10-04" />
+<meta name="date" content="2016-10-05" />
 
 <title>Using the CoreAPI Package</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Using the CoreAPI Package</h1>
 <h4 class="author"><em>Craig Parman</em></h4>
-<h4 class="date"><em>2016-10-04</em></h4>
+<h4 class="date"><em>2016-10-05</em></h4>
 
 
 
@@ -82,9 +82,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Due to the way the API functions the list names must be the actual attribute name and must be in all upper case. In addition, because R does not support spaces in variable names, LIMS attribute names can not contain spaces or special characters.(This is good practice anyway.) Underscores are supported.</p>
 <p>Note: All of the functionality and limitations for this version of the CoreAPI refer to the first version on the Core REST API, and not the ODATA compliant version. The package will be extended to cover the new functionality at some point.</p>
 </div>
+<div id="function-apicall" class="section level2">
+<h2>Function apiCall</h2>
+<p>The function apiCall is the function that makes all posts the the Core API. This function can be used to json directly to the API. The function is not intended to be call directly buy as part of a higher level functions. However is can be useful for debugging of one off call. The parameters are</p>
+<table style="width:75%;">
+<colgroup>
+<col width="19%"></col>
+<col width="55%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">coreApi</td>
+<td align="left">coreApi object with valid jsessionid and url</td>
+</tr>
+<tr class="even">
+<td align="left">body</td>
+<td align="left">body for request</td>
+</tr>
+<tr class="odd">
+<td align="left">encode</td>
+<td align="left">encoding to use for request option are “multipart”, “form”, “json”, “raw”</td>
+</tr>
+<tr class="even">
+<td align="left">special</td>
+<td align="left">passed to buildUrl for special sdk endpoints such as login</td>
+</tr>
+<tr class="odd">
+<td align="left">useVerbose</td>
+<td align="left">Use verbose communication for debugging</td>
+</tr>
+</tbody>
+</table>
+<p>This function can be used to pass json generated the the CORE REST API tool. The coreApi object is generate with the coreApi function described below. Here is a typical example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">api&lt;-<span class="kw">CoreAPI</span>(<span class="st">&quot;PATH TO JSON FILE&quot;</span>)
+login&lt;-<span class="st"> </span>CoreAPI::<span class="kw">authBasic</span>(api)
+response &lt;-CoreAPI::<span class="kw">apiCall</span>(login$coreApi,body,<span class="st">&quot;json&quot;</span>,,<span class="dt">special=</span><span class="ot">NULL</span>,<span class="dt">useVerbose=</span><span class="ot">FALSE</span>)
+<span class="kw">logOut</span>(login$coreApi )</code></pre></div>
+<p>apiCall calls the function buildUrl to build the url including the jsessionId. Currentlly appending the AWSELB parameter using to optimize calls to systems with mutliple nodes is not supported. This will be address in future releases.</p>
+</div>
 <div id="authentication" class="section level2">
 <h2>Authentication</h2>
-<p>The current API supports basic authentication. Once the user is authenticated a jsession id value is appended to the web calls. The details are in the CORE LIMS documentation here:</p>
+<p>The current API supports basic authentication. Once the user is authenticated a jsession id value is appended to all urls for API calls. The details are in the CORE LIMS documentation here:</p>
 <p><a href="https://documentation.corelims.com/docs/v5/SDK/JSON_Web_Service/Best_Practices_for_API_Usage.htm" class="uri">https://documentation.corelims.com/docs/v5/SDK/JSON_Web_Service/Best_Practices_for_API_Usage.htm</a></p>
 <p>The authentication process requires two functions calls. The first step is to read the URL, username and password information from a file with the function coreAPI. The input file in in json format as shown below.</p>
 <pre><code>            [{                             
@@ -94,7 +138,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
               &quot;account&quot;: &quot;xxxxxxxxx&quot;,       
             }]                             
     </code></pre>
-<p>Values for the first three parameters and required and the account entry is only required if the user has access to more than one tenant. If the account parameter is not required pas a zero length string “” . This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.</p>
+<p>Values for the first three parameters and required and the account entry is only required if the user has access to more than one tenant. If the account parameter is not required pas a zero length string “”. This function return an object which contains the information in the json and a valid jsession ID in the list object named CoreApi.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#get login information</span>
 
 loginInfo&lt;-CoreAPI::<span class="kw">coreAPI</span>(<span class="dt">CoreAccountInfo=</span><span class="st">&quot;path/account.json&quot;</span>)
@@ -174,7 +218,7 @@ item &lt;-<span class="st"> </span>get$entity</code></pre></div>
 </div>
 <div id="attaching-files" class="section level2">
 <h2>Attaching Files</h2>
-<p>Files may be attached either directly to the entity or in a file type attribute. A single function will handle both cases. If the file is to be attached directly to the entity the targetAttributeName value is set to an empty string. Otherwise the targetAttributeName is set to a valid file attribute. The path to the local file is passed as a string in the parameter filepath. If multiple file need to be attached, multiple function call will be required.</p>
+<p>Files may be attached either directly to an entity or in a file type attribute. A single function will handle both cases. If the file is to be attached directly to the entity the targetAttributeName value is set to an empty string. Otherwise the targetAttributeName is set to a valid file attribute on the entity. The path to the local file is passed as a string in the parameter filepath. If multiple files need to be attached, multiple function call will be required.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># attach to the attribute named File</span>
 
  items2&lt;-CoreAPI::<span class="kw">attachFile</span>(response$coreApi,barcode,<span class="st">&quot;SAgraph.png&quot;</span>,filepath,<span class="dt">targetAttributeName=</span><span class="st">&quot;File&quot;</span>)
@@ -186,7 +230,7 @@ item &lt;-<span class="st"> </span>get$entity</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item$entity$values$FILE
 $stringData
 [<span class="dv">1</span>] <span class="st">&quot;{'file':'SAgraph.png.16','url':'https://experience.platformforscience.com/corelims?cmd=view-file&amp;entityType=FILE ATTRIBUTE&amp;entityId=9532882'}&quot;</span></code></pre></div>
-<p>There is no API functionality to see if a file is attached to the entity. There also is not currently any API functionality to retrieve file attached to an attribute. The download URL will only work when called from a browser that has been authenticated using the GUI interface. A workaround is possible and will be included it a future release.</p>
+<p>There is no API functionality to see if a file is attached to the entity. Also currently there is not any API functionality to retrieve a file attached to an attribute. The download URL will only work when called from a browser that has been authenticated using the GUI interface. A workaround is possible and will be included it a future release.</p>
 </div>
 <div id="samples-and-sample-lots" class="section level2">
 <h2>Samples and Sample Lots</h2>

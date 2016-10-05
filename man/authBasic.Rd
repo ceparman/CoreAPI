@@ -7,20 +7,20 @@
 authBasic(coreApi, useVerbose = FALSE)
 }
 \arguments{
-\item{coreApi}{object of class coreApi that contains user, password,  baseURL and \cr
+\item{coreApi}{object of class coreApi that contains user, password,  baseURL and
 account. account is required if user has access to multiple tenants.}
 
 \item{useVerbose}{- Use verbose settings for HTTP commands}
 }
 \value{
-returns a list with coreApi which returns the passed coreApi object with  jsessionid, \cr
-           awselb and employeeid populated, $response contains the entire http response \cr
+returns a list with coreApi which returns the passed coreApi object with  jsessionid,
+           awselb and employeeid populated, $response contains the entire http response
 }
 \description{
 \code{authBasic} Logs in and returns a fully populated coreApi object in $coreAPI.
 }
 \details{
-\code{authBasic} authenticates to Core API
+\code{authBasic} Authenticates to Core API
 }
 \examples{
 \dontrun{

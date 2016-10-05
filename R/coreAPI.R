@@ -6,22 +6,24 @@
 #'\dontrun{
 #'   api<-coreApi("/home")
 #'}
-#'@details  Creates a object of class coreAPI that contains user name,            \cr
-#'          password base url, and account                                        \cr
-#'          if needed. It has slots for account, jsessionID, AWSELB, and base URL. \cr
-#'          Requires a json file that contains the user pwd and account.           \cr
+#'@details  Creates a object of class coreAPI that contains user name,
+#'          password base url, and account
+#'          if needed. It has slots for account, jsessionID, AWSELB, and base URL.
+#'          Requires a json file that contains the user pwd and account.
 #'
-#'         \code{#'Creates a object of class coreAPI that contains account information} \cr
-#'         \code{coreAPI("path to json")}  \cr \cr
+#'         \code{#'Creates a object of class coreAPI that contains account information}
+#'         \code{coreAPI("path to json")}.
 #' The json must include the fields shown below.  The account value may be set to "" if the user only has access to one tenant. \cr \cr
-#' Example json object.  \cr \cr
+#' Example json object.
+#'
 #'          \code{
-#'                [{
-#'                  "user": "xxxxxxxxx",
-#'                  "pwd": "xxxxxxxxx",
-#'                  "coreUrl": "xxxxxxx",
-#'                 "account": "xxxxxxxxx",
-#'                }]
+#'
+#'                [{ \cr
+#'                  "user": "xxxxxxxxx",\cr
+#'                  "pwd": "xxxxxxxxx",\cr
+#'                  "coreUrl": "xxxxxxx",\cr
+#'                 "account": "xxxxxxxxx",\cr
+#'                }]\cr
 #'           }
 
 
