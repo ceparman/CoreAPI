@@ -61,8 +61,6 @@ test_that("Create an experiment ",
        exptdata1<-CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[1]]$barcode,
                                            assayAttributeValues1,useVerbose=FALSE)
 
-       print(exptdata1$entity$experimentData$ASSAY_ATTRIBUTE)
-       print(assayAttributeValues1$ASSAY_ATTRIBUTE[1])
 
        expect_equal(exptdata1$entity$experimentData$ASSAY_ATTRIBUTE$stringData,assayAttributeValues1$ASSAY_ATTRIBUTE[1] )
 
@@ -79,7 +77,7 @@ test_that("Create an experiment ",
 
 
 
-      unpublish<- experimentUnPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
+       unpublish<- experimentUnPublish(r$coreApi, experimentType,newExptbarcode,useVerbose = FALSE)
 
 
 

@@ -30,7 +30,8 @@ updateCellContents(coreApi, containerType, containerBarcode, containerCellNum,
 \item{useVerbose}{use verbose communications for debugging}
 }
 \value{
-RETURN returns a list $entity contains updated container information, $response contains the entire http response
+RETURN returns a list $entity contains updated container
+        information, $response contains the entire http response
 }
 \description{
 \code{updateCellContents} - Puts a cell lot in a container cell.

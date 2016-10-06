@@ -38,8 +38,10 @@ apiCall<-function(coreApi,body,encode,special=NULL,useVerbose=FALSE)
 sdk_url<-  CoreAPI::buildUrl(coreApi,special,useVerbose=useVerbose)
 
 
-response<-httr::POST(sdk_url,body = body, encode=encode,
-                     httr::verbose(data_out = useVerbose, data_in = useVerbose, info = useVerbose, ssl = useVerbose))
+response<-invisible(httr::POST(sdk_url,body = body, encode=encode,
+                     httr::verbose(data_out = useVerbose, data_in = useVerbose,
+                                   info = useVerbose, ssl = useVerbose))
+                    )
 
 #check for general HTTP error in response
 

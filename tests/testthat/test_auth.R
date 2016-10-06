@@ -47,7 +47,7 @@ bapi$pwd <-"bad"
  test_that("single account sucessful login with verbose output",
 
            {
-             response<- CoreAPI::authBasic(tapi,useVerbose=TRUE)
+             response<- CoreAPI::authBasic(tapi,useVerbose=FALSE)
              expect_that(is.null(response$coreApi$jsessionId),equals(FALSE))
              expect_match(CoreAPI::logOut(response$coreApi)$success,"Success" )
 

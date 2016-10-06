@@ -19,7 +19,8 @@ updateExperimentSampleData(coreApi, entityType, experimentSamplebarcode,
 \item{useVerbose}{Use verbose communication for debugging}
 }
 \value{
-RETURN returns a list $entity contains entity information, $response contains the entire http response
+RETURN returns a list $entity contains entity information,
+       $response contains the entire http response
 }
 \description{
 \code{updateExperimentSampleData} Update experiment sample data.
