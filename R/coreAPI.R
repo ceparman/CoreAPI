@@ -12,8 +12,9 @@
 #'          Requires a json file that contains the user pwd and account.
 #'         \code{#'Creates a object of class coreAPI that contains account information}
 #'         \code{coreAPI("path to json")}.
-#'         }
-#'The json must include the fields shown below.  The account value may be set to "" if the user only has access to one tenant. \cr \cr
+#'
+#'The json must include the fields shown below.  The account value may be set to ""
+#' if the user only has access to one tenant.
 #'Example json object.
 #'
 #'          \code{
@@ -25,6 +26,7 @@
 #'                 "account": "xxxxxxxxx",
 #'                }]
 #'           }
+#'}
 
 
 coreAPI<- function(CoreAccountInfo)
