@@ -1,5 +1,5 @@
 
-context("Tests for attachRile")
+context("Tests for attachFile")
 
 
 #Test attachFile functionality

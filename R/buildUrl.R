@@ -22,7 +22,7 @@ buildUrl<-function(coreApi,special=NULL,useVerbose=FALSE)
 {
 
 if (is.null(special)){
-  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jessionid,sep="")
+  sdk_url<-paste(coreApi$coreUrl,"/sdk",";jsessionid=",coreApi$jsessionId,sep="")
 
   } else {
 
