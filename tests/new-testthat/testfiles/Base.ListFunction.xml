@@ -1,0 +1,2462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <configName>Base.ListFunction</configName>
+   <attributes>
+      <attribute>
+         <attributeName>ci_nav_show_confirm_dialog</attributeName>
+         <dataUnit />
+         <dataType>8</dataType>
+         <dataTypeName>Boolean - Generic</dataTypeName>
+      </attribute>
+      <attribute>
+         <attributeName>ci_nav_url_label</attributeName>
+         <dataUnit></dataUnit>
+         <dataType>1</dataType>
+         <dataTypeName>String - Generic</dataTypeName>
+      </attribute>
+      <attribute>
+         <attributeName>ci_nav_form_key</attributeName>
+         <dataUnit></dataUnit>
+         <dataType>1</dataType>
+         <dataTypeName>String - Generic</dataTypeName>
+      </attribute>
+      <attribute>
+         <attributeName>ci_nav_dest_cmd_key</attributeName>
+         <dataUnit></dataUnit>
+         <dataType>1</dataType>
+         <dataTypeName>String - Generic</dataTypeName>
+      </attribute>
+      <attribute>
+         <attributeName>ci_nav_show_confirm_dialog</attributeName>
+         <dataUnit></dataUnit>
+         <dataType>8</dataType>
+         <dataTypeName>Boolean - Generic</dataTypeName>
+      </attribute>
+      <attribute>
+         <attributeName>ci_nav_url_template</attributeName>
+         <dataUnit></dataUnit>
+         <dataType>1</dataType>
+         <dataTypeName>String - Generic</dataTypeName>
+      </attribute>
+      <attribute>
+         <attributeName>ci_nav_category</attributeName>
+         <dataUnit></dataUnit>
+         <dataType>1</dataType>
+         <dataTypeName>String - Generic</dataTypeName>
+      </attribute>
+   </attributes>
+   <entityTypes>
+      <entityType>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <prefix>LTFN</prefix>
+         <seq>10</seq>
+         <superTypeName>FUNCTION</superTypeName>
+         <defaultLocationName>No Location</defaultLocationName>
+         <trackVersion>0</trackVersion>
+         <requireSignature>0</requireSignature>
+         <enforceProjectSecurity>0</enforceProjectSecurity>
+         <enforceAttributeSecurity>0</enforceAttributeSecurity>
+         <promptLocation>0</promptLocation>
+         <trackLocation>0</trackLocation>
+         <userBarcode>0</userBarcode>
+         <reportable>0</reportable>
+         <queryPageSize>1000</queryPageSize>
+         <trackConc>0</trackConc>
+         <trackTime>0</trackTime>
+         <trackDesign>0</trackDesign>
+         <entityTypeAttributes>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_url_label</attributeName>
+               <columnHeader>Label</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>1</seqNum>
+               <editable>1</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_url_template</attributeName>
+               <columnHeader>Url Template</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>2</seqNum>
+               <editable>1</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_category</attributeName>
+               <columnHeader>Category</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>3</seqNum>
+               <editable>1</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <columnHeader>EntityTypes</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>7</seqNum>
+               <editable>0</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <columnHeader>Confirm Dialog</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>8</seqNum>
+               <editable>1</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_form_key</attributeName>
+               <columnHeader>Form Key</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>9</seqNum>
+               <editable>1</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+            <entityTypeAttribute>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <columnHeader>Dest Cmd Key</columnHeader>
+               <defaultValue></defaultValue>
+               <seqNum>10</seqNum>
+               <editable>1</editable>
+               <mandatory>0</mandatory>
+               <multiSelect>0</multiSelect>
+               <visualize>0</visualize>
+               <tab></tab>
+               <design>0</design>
+               <callSequence>0</callSequence>
+            </entityTypeAttribute>
+         </entityTypeAttributes>
+         <entityTypeAssociations>
+         </entityTypeAssociations>
+         <entityTypeTriggers>
+         </entityTypeTriggers>
+         <entityTypeMenuItems>
+         </entityTypeMenuItems>
+         <entityTypeFunctions>
+         </entityTypeFunctions>
+         <entityTypeApplications>
+         </entityTypeApplications>
+      </entityType>
+   </entityTypes>
+   <entities>
+      <entity>
+         <name>ci_listfn_aggregate_data</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>All Aggregate data</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Sample;Lot (Data and Reporting)</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmSubmit</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>sample-list-aggregate</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_assay_aggregate_data</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Aggregate Data by Assay</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Sample;Lot  (Data and Reporting)</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmAggregateDataIn</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>assay-list-aggregate</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_single_data</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Single data</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Sample;Lot (Data and Reporting)</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmSubmit</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>sample-list-data</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_container_update_volume</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Update volume</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Container</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmContainerUpdateVolume</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>container-list-functions-update-volume</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_inventory_count_by_container_type</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Inventory Count by Container Type</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Sample</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmInventoryCountByContainerType</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>sample-list-functions-inventory-summary</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_send_to_query_page</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Send to query page</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>All</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data>
+               </data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmSubmit</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>query-form</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_assay_single_data</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Single data by assay</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Sample;Lot (Data and Reporting)</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmSingleDataIn</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>assay-list-single</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_calendar_view</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Calendar View</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>Calendar</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmSubmit</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>list-functions-calendar-view</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+      <entity>
+         <name>ci_listfn_send_to_list_functions_page</name>
+         <entityTypeName>LIST FUNCTION</entityTypeName>
+         <active>1</active>
+         <locationName>No Location</locationName>
+         <hasComments>0</hasComments>
+         <hasFiles>0</hasFiles>
+         <hasELN>0</hasELN>
+         <projectNames>General</projectNames>
+         <values>
+            <value>
+               <attributeName>ci_nav_url_label</attributeName>
+               <data>Send to list functions page</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_url_template</attributeName>
+               <data></data>
+            </value>
+            <value>
+               <attributeName>ci_nav_category</attributeName>
+               <data>All</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+               <data>
+               </data>
+            </value>
+            <value>
+               <attributeName>ci_nav_show_confirm_dialog</attributeName>
+               <data>0</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_form_key</attributeName>
+               <data>frmSubmit</data>
+            </value>
+            <value>
+               <attributeName>ci_nav_dest_cmd_key</attributeName>
+               <data>list-functions</data>
+            </value>
+         </values>
+         <associations>
+         </associations>
+      </entity>
+        <entity>
+            <name>ci_listfn_add_to_queue</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add to Queue</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (Project Manangement)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAddToQueue</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>add-to-queue</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_sample_to_queue</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add Sample to Queue</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample; Lot (Project Manangement)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSampleAddToQueue</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>sample-list-queue</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_to_pqueue</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add to Multiple Priority Queues</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Lot</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmPriorityQueues</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>add-to-queue</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_Sample_to_new_experiment</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add To New Experiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample; Lot (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSampleAddToNewExperiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>new-experiment-w-samples</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_update_attributes</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Update Attributes</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmUpdateAttributes</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-modify-attributes-sdk</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add__sample_to_existing_experiment</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add To Existing Experiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Data and Reporting)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAddSampletoExperiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>update-experiment-samples-sdk</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_container_to_existing_experiment</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add To Existing Experiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerAddToExistingExperiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>update-experiment-containers</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_container_to_new_experiment</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add To New Experiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerAddToNewExperiment</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>new-experiment-w-containers</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_array_samples_into_containers</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Sample Arrays into Container</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmArrayToContainer</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>array-samples-sdk</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_container_update_concentration</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Update Concentration</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Project Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerUpdateConcentration</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>container-list-functions-update-concentration</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_sample_inventory_report</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Inventory Report (Sample Based)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSampleBasedInventoryReport</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>sample-list-functions-inventory</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_sample_find_form_cherry_picking</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Find For Cherry Picking</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSampleFindForCherryPicking</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-container-selection</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_association</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add Association</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAddAssociation</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-add-association</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_sample_list_summary</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Sample Inventory Summary</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Project Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSampleInventorySummary</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>sample-list-functions-inventory-summary</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_container_bulk_transfer</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Perform Bulk Transfer</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Project Management</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerPerformBulkTransfer</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>bulk-entity-interface</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_lot_to_sample</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Send To Sample List Functions</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample Lot (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSendToSampleFunctions</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-lot-to-samples</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_move</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Move</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Inventory Management</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmMove</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>lf-move</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_to_new_batch</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add to New Batch</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>newBatchForMembers</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>new</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_send_to_lot_list_fn</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Send To Lot List Functions</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSendToLotFunctions</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-sample-to-lots</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_generate_report</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Generate Report</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Data and Reporting)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmGenerateReport</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>get-table</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_consolidate</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Consolidate</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerConsolidate</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>consolidate-containers</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_to_existing_list</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add To Existing List</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAddtoExistingList</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>add-to-list</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_print_barcodes</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Print Barcodes</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmPrintBarcodes</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>print-barcodes</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_perform_transfer</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Perform Transfers</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerPerformTransfer</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>new-sample-transfer</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_bin_request</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Bin and Request</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (List Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerBinRequestBinOnAttribute</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_sample_request</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Sample Request</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample;Lot (Project Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmMakeSampleRequest</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>make-sample-request</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_activation</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Activate / In-Activate</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmActivation</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>bulk-activate</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_associate_list_to_project</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Associate List Members to Projects</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (Project Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAssociateListToProjects</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-associate-projects</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_container_update_concentration</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Update Concentration</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Project Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerUpdateConcentration</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>container-list-functions-update-concentration</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_serial_dilute</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Serial Dilute</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerSerialDilute</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>serial-dilute-list</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_clear_contents</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Clear Contents</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerClearContents</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>clear-container-contents</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_sample_list</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Sample List Functions</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerSampleListFunctions</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>cont-list-sample-list</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_make_distinct</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Make Members Distinct</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmMemberDistinct</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-distinct</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_report_by_plate_map</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Report by Plate Map</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Project Manangement)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerReportByPlateMap</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>container-list-functions-report-by-platemap</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_view_details</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>View Details</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (Data and Reporting)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmViewDetails</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-function-details</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_view_details</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>View Sample Details</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Sample; Lot (Data and Reporting)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSampleViewDetails</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-function-details</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_parent_location</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Parent Locations</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Project Manangement)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmSubmit</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-parent-location</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_to_eln</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add to ELN Entry</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAddToELNEntry</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>list-functions-add-to-eln</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_container_bulk_transfer</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Perform Bulk Transfer</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Project Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerPerformBulkTransfer</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>bulk-entity-interface</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_cherry_pick</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Cherry Pick Contents</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Inventory Management)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerCherryPickContents</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>cherry-pick-cells</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_query_by_attributes</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Query By Attribute</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmQueryByAttribute</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>attribute-query</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_to_new_list</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add To New List</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmAddToNewList</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>add-to-new-list</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_Inventory_report</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Inventory Report</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>Container (Project Manangement)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>frmContainerInventoryReports</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>container-list-functions-inventory</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+        <entity>
+            <name>ci_listfn_add_to_new_request</name>
+            <entityTypeName>LIST FUNCTION</entityTypeName>
+            <active>1</active>
+            <locationName>No Location</locationName>
+            <hasComments>0</hasComments>
+            <hasFiles>0</hasFiles>
+            <hasELN>0</hasELN>
+            <projectNames>General</projectNames>
+            <values>
+                <value>
+                    <attributeName>ci_nav_url_label</attributeName>
+                    <data>Add to New Request</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_url_template</attributeName>
+                    <data></data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_category</attributeName>
+                    <data>All (General)</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_entityTypeAssoc_json</attributeName>
+                    <data>[]</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_show_confirm_dialog</attributeName>
+                    <data>0</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_form_key</attributeName>
+                    <data>newRequestForMembers</data>
+                </value>
+                <value>
+                    <attributeName>ci_nav_dest_cmd_key</attributeName>
+                    <data>new</data>
+                </value>
+            </values>
+            <associations />
+        </entity>
+   </entities>
+   <uiMappings>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>list-functions-modify-attributes-sdk</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.core.ListFunctionsBulkModify</sdkCommand>
+         <destination>sdk</destination>
+         <operation>W</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>array-samples-sdk</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.core.ArraySamplesIntoContainersSDK</sdkCommand>
+         <destination>sdk</destination>
+         <operation>W</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>update-experiment-samples-sdk</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.core.ExperimentSamplesUpdateSDK</sdkCommand>
+         <destination>sdk</destination>
+         <operation>W</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>list-get-all-by-entity-type</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.list.listGetAllEntitiesByEntityType</sdkCommand>
+         <destination>sdk</destination>
+         <operation>W</operation>
+         <component>CORE</component>
+      </uiMapping> 
+      <uiMapping>
+		<entityTypeName>*</entityTypeName>
+		<commandKey>consolidate-containers</commandKey>
+		<commandClass>com.coreinformatics.inventory.command.ContainerConsolidationCommand</commandClass>
+		<destination>ContainerList.jsp</destination>
+		<operation>W</operation>
+		<component>INVENTORY</component>
+	  </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>type-select-create-and-associate</commandKey>
+         <commandClass>com.coreinformatics.core.command.selectTypeToCreateEntityWithAssociationsCommand</commandClass>
+         <sdkCommand></sdkCommand>
+         <destination>TypeSelector.jsp</destination>
+         <operation>W</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>resolve-entity-list-type</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.list.ResolveEntityListType</sdkCommand>
+         <destination>sdk</destination>
+         <operation>R</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>fetch-entity-list-info</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.list.FetchListContextInfo</sdkCommand>
+         <destination>sdk</destination>
+         <operation>R</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>resolve-entity-barcode-list</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.list.ResolveEntityBarcodeList</sdkCommand>
+         <destination>sdk</destination>
+         <operation>R</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>validate-list-entities-exist</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.list.ValidateListEntitiesExist</sdkCommand>
+         <destination>sdk</destination>
+         <operation>R</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>list-user-entityTypes</commandKey>
+         <commandClass>sdk</commandClass>
+         <sdkCommand>com.coreinformatics.sdk.crud.EntityTypeGetAllForUser</sdkCommand>
+         <destination>sdk</destination>
+         <operation>R</operation>
+         <component>CORE</component>
+      </uiMapping>
+      <uiMapping>
+         <entityTypeName>*</entityTypeName>
+         <commandKey>external-api-post</commandKey>
+         <commandClass>com.coreinformatics.core.command.ListFunctionExternalAPICallCommand</commandClass>
+         <destination>DisplayCoreMessageLog.jsp</destination>
+         <operation>W</operation>
+         <component>CORE</component>
+      </uiMapping>
+   </uiMappings>
+</configuration>
