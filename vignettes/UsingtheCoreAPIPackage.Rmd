@@ -366,12 +366,13 @@ secondSample<-CoreAPI::createExperimentSample(r$coreApi,experimentSampleType,sam
 
 Once sample are added to an experiment assay data is added using the updateExperimentSampleData functions.  This function add data to the attributes defined in the assay associated to the experiment. Experiment data can be retrieved using the getExperimentSamples function which returns the sample data along with assay data.
 
-```(r eval = FALSE)
+```{r eval = FALSE}
 
 exptdata1<-CoreAPI::updateExperimentSampleData(r$coreApi,experimentSampleType,expt$entity$experimentSamples[[1]]                                                $barcode,assayAttributeValues1,useVerbose=FALSE)
 
 
 expt<-CoreAPI::getExperimentSamples(r$coreApi,"TEST EXPERIMENT",newExptbarcode,useVerbose=FALSE)
+
 ```
 
 

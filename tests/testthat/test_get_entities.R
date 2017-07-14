@@ -16,6 +16,16 @@ test_that("get entity by entity and barcode values",
             expect_equal(object=id,expected=sampleId)
            })
 
+test_that("get entity by entity and name values",
+          {
+            source("testfiles/testEntityValues.R")
+            r<-CoreAPI::authBasic(tapi)
+            #name and barcode are thet same
+            item<- CoreAPI::getEntityByName(r$coreApi,entityType,barcode)
+            id<-item$entity$entityId
+            out<-CoreAPI::logOut(r$coreApi)
+            expect_equal(object=id,expected=sampleId)
+          })
 
 
 
