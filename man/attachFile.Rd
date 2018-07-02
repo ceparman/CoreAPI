@@ -24,7 +24,7 @@ attachFile(coreApi, barcode, filename, filepath, targetAttributeName = "",
 RETURN returns a list $entity contains entity information, $response contains the entire http response
 }
 \description{
-\code{attachFile} Attaches a file to entity identified by barcode or one of its attributes.
+\code{attachFile} Attaches a file to entity identified by barcode.  Note: This function uses the JSON API.
 }
 \details{
 \code{attachFile}  Attaches a file to an entity or file attribute.
@@ -33,12 +33,11 @@ RETURN returns a list $entity contains entity information, $response contains th
 \dontrun{
 api<-CoreAPI("PATH TO JSON FILE")
 login<- CoreAPI::authBasic(api)
-newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,
+modifiedItem<-CoreAPI::attachFile(response$coreApi,barcode,filename,
          filepath,targetAttributeName="",useVerbose=FALSE)
-logOut(login$coreApi )
+CoreAPI::logOut(login$coreApi )
 }
 }
 \author{
-Craig Parman
+Craig Parman ngsAnalytics, ngsanalytics.com
 }
-

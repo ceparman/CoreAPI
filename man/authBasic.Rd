@@ -2,7 +2,7 @@
 % Please edit documentation in R/authBasic.R
 \name{authBasic}
 \alias{authBasic}
-\title{authBasic - Authenticates against the LIMS using basic authentication.}
+\title{authBasic - Authenticates against the ODATA REST API using basic authentication.}
 \usage{
 authBasic(coreApi, useVerbose = FALSE)
 }
@@ -13,23 +13,24 @@ account. account is required if user has access to multiple tenants.}
 \item{useVerbose}{- Use verbose settings for HTTP commands}
 }
 \value{
-returns a list with coreApi which returns the passed coreApi object with  jsessionid,
+returns a list with two oblects. coreApi which returns the passed coreApi object with  jsessionid,
            awselb and employeeid populated, $response contains the entire http response
 }
 \description{
 \code{authBasic} Logs in and returns a fully populated coreApi object in $coreAPI.
 }
 \details{
-\code{authBasic} Authenticates to Core API
+\code{authBasic} Authenticates against the ODATA REST API using basic authentication.
 }
 \examples{
 \dontrun{
-api<-CoreAPI("PATH TO JSON FILE")
-response<- CoreAPI::authBasic(api)
-logOut(response$coreApi,useVerbose=TRUE )
+api<-CoreAPIV::CoreAPI("PATH TO JSON FILE")
+response<- CoreAPIV2::authBasic(api)
+login <- response$core$Api
+error <- httr::http_error(response$response)
+CoreAPIV2::logOut(response$coreApi,useVerbose=TRUE )
 }
 }
 \author{
-Craig Parman
+Craig Parman ngsAnalytics, ngsanaltics.com
 }
-

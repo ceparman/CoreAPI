@@ -15,19 +15,18 @@ logOut(coreApi, useVerbose = FALSE)
 returns list with $success = TRUE when sucessful, $response contains the entire http response
 }
 \description{
-\code{logOut} logs out of the current jsession.
+\code{logOut} logs out of the current session.
 }
 \details{
-\code{logOut} logs user out of the LIMS using Core API
+\code{logOut} logs user out of the Core API
 }
 \examples{
 \dontrun{
-api<-CoreAPI("PATH TO JSON FILE")
-response<- CoreAPI::authBasic(api)
-logOut(response$coreApi,useVerbose=TRUE )
+api<-CoreAPIV::coreAPI("PATH TO JSON FILE")
+response<- CoreAPIV::authBasic(api)
+logOut <- CoreAPIV::logOut(response$coreApi,useVerbose=TRUE )
 }
 }
 \author{
-Craig Parman
+Craig Parman ngsAnalytics, ngsanalytics.com
 }
-

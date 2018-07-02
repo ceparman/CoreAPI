@@ -3,7 +3,7 @@ context("Tests for authentication ")
 
 #create coreApi object
 
-tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/account.json")
+tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/53account.json")
 
 
 

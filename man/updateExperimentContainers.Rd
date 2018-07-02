@@ -40,4 +40,3 @@ update<- CoreAPI::updateExperimentContainers(login$coreApi,containerBarcode,
 \author{
 Craig Parman
 }
-

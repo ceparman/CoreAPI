@@ -56,4 +56,3 @@ logOut(login$coreApi )
 \author{
 Craig Parman
 }
-
