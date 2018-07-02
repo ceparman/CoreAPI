@@ -13,74 +13,111 @@
 #'\dontrun{
 #' api<-CoreAPI("PATH TO JSON FILE")
 #' login<- CoreAPI::authBasic(api)
-#' newitem<-CoreAPI::attachFile(response$coreApi,barcode,filename,
+#' modifiedItem<-CoreAPI::attachFile(response$coreApi,barcode,filename,
 #'          filepath,targetAttributeName="",useVerbose=FALSE)
-#' logOut(login$coreApi )
+#' CoreAPI::logOut(login$coreApi )
 #' }
-#'@author Craig Parman
-#'@description \code{attachFile} Attaches a file to entity identified by barcode or one of its attributes.
+#'@author Craig Parman ngsAnalytics, ngsanalytics.com
+#'@description \code{attachFile} Attaches a file to entity identified by barcode.  Note: This function uses the JSON API.
 
 
+attachFile <-
+  function (coreApi,
+            barcode,
+            filename,
+            filepath,
+            targetAttributeName = "",
+            useVerbose = FALSE)
 
-
-attachFile<-function (coreApi,barcode,filename,filepath,targetAttributeName="",useVerbose=FALSE)
-
-{
-
-
-
-
-  if(!file.exists(filepath)) {
-
-    stop(
-      {print("Unable to find file on local OS")
-        print( filepath)
+  {
+    if (!file.exists(filepath)) {
+      stop({
+        print("Unable to find file on local OS")
+        print(filepath)
       },
-      call.=FALSE
+      call. = FALSE)
+
+    }
+
+
+    sdkCmd <- jsonlite::unbox("file-attach")
+
+    data <- list(
+      targetEntityBarcode = jsonlite::unbox(barcode),
+      targetEntityId = jsonlite::unbox(""),
+      name = jsonlite::unbox(filename),
+      targetAttributeName = jsonlite::unbox(targetAttributeName),
+      fileContentTypeOverride = jsonlite::unbox("")
     )
 
+
+    responseOptions <- c("CONTEXT_GET", "MESSAGE_LEVEL_WARN")
+    logicOptions <- "EXECUTE_TRIGGERS"
+    typeParam <- jsonlite::unbox("FILE")
+
+
+    request <-
+      list(
+        request = list(
+          sdkCmd = sdkCmd,
+          data = data,
+          typeParam = typeParam,
+          responseOptions = responseOptions,
+          logicOptions = logicOptions
+        )
+      )
+
+
+
+    headers <- c("Content-Type" = "multipart/related")
+
+
+
+
+
+    form <- list(
+      json = jsonlite::toJSON(request),
+      fileData = httr::upload_file(filepath, type = "image/png")
+    )
+
+
+
+    body <- list(json = jsonlite::toJSON(request),
+                 fileData = httr::upload_file(filepath))
+
+
+    cookie <-
+      c(JSESSIONID = coreApi$jsessionId,
+        AWSELB = coreApi$awselb)
+
+
+
+    response <-
+      httr::POST(
+        paste0(coreApi$scheme, "://", coreApi$coreUrl, "/sdk"),
+        body = body,
+        httr::verbose(data_out = FALSE),
+        httr::add_headers("Content-Type" = "multipart/form-data"),
+        httr::set_cookies(cookie)
+
+      )
+
+
+
+
+    #check for general HTTP error in response
+
+    if (httr::http_error(response)) {
+      stop({
+        print("json API file-attach call failed")
+        print(httr::http_status(response))
+      },
+      call. = FALSE)
+
+
+    }
+
+    list(entity = httr::content(response)$response$data,
+         response = response)
+
   }
-
-
-
-
-  sdkCmd<-jsonlite::unbox("file-attach")
-
-   data<-list(targetEntityBarcode = jsonlite::unbox(barcode),
-             name=jsonlite::unbox(filename),
-             targetAttributeName=jsonlite::unbox(targetAttributeName),
-             fileContentTypeOverride=jsonlite::unbox("")
-   )
-
-
-
-
-   responseOptions<-c("CONTEXT_GET","MESSAGE_LEVEL_WARN")
-   logicOptions<-jsonlite::unbox("EXECUTE_TRIGGERS")
-   typeParam <- jsonlite::unbox("FILE")
-
-
-
-
-   request<-list(request=list(sdkCmd=sdkCmd,data=data,typeParam =typeParam,
-                              responseOptions=responseOptions,
-                              logicOptions=logicOptions))
-
-
-
-
-   form<-list(json = jsonlite::toJSON(request),
-              fileData=httr::upload_file(filepath)
-   )
-
-
-
-
-   #upload file
-   response<- CoreAPI::apiCall(coreApi,form,"multipart",useVerbose=useVerbose)
-
-
-
-  list(entity=httr::content(response)$response$data,response=response)
-
-}
