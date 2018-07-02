@@ -1,7 +1,7 @@
 Package: CoreAPI
 Type: Package
-Title: Core API fucntions
-Version: 0.1.0
+Title: Core API funcntions
+Version: 0.2.0
 Author: Craig Parman
 Maintainer: Craig Parman <cparman@coreinformatics.com>
 Description: The package provides funtions for interacting with the Core API.
