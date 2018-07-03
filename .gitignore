@@ -1,7 +1,0 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-/tests/testthat/testfiles/*
-inst/doc
-/dev/*
