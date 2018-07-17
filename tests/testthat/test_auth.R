@@ -9,7 +9,7 @@ tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/53account.json")
 
  test_that("test sourcing login parameters",
            {
-            expect_match(tapi$coreUrl,"http://experience.platformforscience.com",all=TRUE)
+            expect_match(tapi$coreUrl, "rshinyexperience02test.platformforscience.com",all=TRUE)
            })
 
 
@@ -27,21 +27,11 @@ bapi$pwd <-"bad"
 
  test_that("single account with bad password return NULL jsessionID",
            {
-             response<- CoreAPI::authBasic(bapi)
-             expect_that(is.null(response$coreApi$jsessionId),equals(TRUE))}
+            expect_error(  response<- CoreAPI::authBasic(bapi))
+            }
   )
 
- mapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/multiaccount.json")
-
- test_that("login with multi account user",
-           {
-
-             response<- CoreAPI::authBasic(mapi)
-             expect_that(is.null(response$coreApi$jsessionId),equals(FALSE))
-             expect_match(CoreAPI::logOut(response$coreApi)$success,"Success" )
-             }
- )
-
+ 
 
 
  test_that("single account sucessful login with verbose output",

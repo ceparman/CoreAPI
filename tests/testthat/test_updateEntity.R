@@ -4,7 +4,7 @@ context("Tests for updateEntity")
 #Test updateEntity functionality
 #Entity specific info and locations IDs are in testfiles/testEntityValues.R
 
-tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/account.json")
+tapi<-CoreAPI::coreAPI(CoreAccountInfo = "testfiles/53account.json")
 
 
 

@@ -5,8 +5,7 @@
 \title{createEntity - Create a new instance of a entity.}
 \usage{
 createEntity(coreApi, entityType, attributeValues = NULL, locationId = NULL,
-  projectIds = NULL, barcode = NULL, associations = NULL,
-  useVerbose = FALSE)
+  barcode = NULL, associations = NULL, useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}
@@ -17,13 +16,13 @@ createEntity(coreApi, entityType, attributeValues = NULL, locationId = NULL,
 
 \item{locationId}{location ID for initial location as character string}
 
-\item{projectIds}{project comma separated list of project IDs as character string}
-
 \item{barcode}{User provided barcode as a character string}
 
 \item{associations}{association as a list of dataframes (see vignette for details)}
 
 \item{useVerbose}{Use verbose communication for debugging}
+
+\item{projectIds}{project comma separated list of project IDs as character string}
 }
 \value{
 RETURN returns a list $entity contains entity information, $response contains the entire http response

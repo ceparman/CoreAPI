@@ -24,7 +24,7 @@
 
 
 createEntity<-function (coreApi,entityType,attributeValues=NULL,
-                        locationId=NULL,projectIds=NULL,barcode=NULL,associations=NULL,useVerbose=FALSE)
+                        locationId=NULL,barcode=NULL,associations=NULL,useVerbose=FALSE)
 
 {
 
@@ -81,7 +81,8 @@ createEntity<-function (coreApi,entityType,attributeValues=NULL,
 
 
   responseOptions<-c("CONTEXT_GET","MESSAGE_LEVEL_WARN")
-  logicOptions<-jsonlite::unbox("EXECUTE_TRIGGERS")
+  logicOptions<-"EXECUTE_TRIGGERS"
+#  logicOptions<-jsonlite::unbox("EXECUTE_TRIGGERS")
   typeParam <- jsonlite::unbox(entityType)
 
 
