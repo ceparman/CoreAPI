@@ -7,7 +7,7 @@ Maintainer: Craig Parman <cparman@coreinformatics.com>
 Description: The package provides funtions for interacting with the Core API.
 License: GPL-2 | GPL-3
 LazyData: TRUE
-Imports: httr,jsonlite
+Imports: httr,jsonlite, CoreAPIV2
 Suggests: testthat,
     knitr,
     rmarkdown
