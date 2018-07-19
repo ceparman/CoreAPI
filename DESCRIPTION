@@ -2,8 +2,9 @@ Package: CoreAPI
 Type: Package
 Title: Core API funcntions
 Version: 0.2.0
-Author: Craig Parman
-Maintainer: Craig Parman <cparman@coreinformatics.com>
+Authors@R:
+    person("Craig", "Parman", , "info@ngsanalytics.com", role = c("aut", "cre") 
+      )
 Description: The package provides funtions for interacting with the Core API.
 License: GPL-2 | GPL-3
 LazyData: TRUE
