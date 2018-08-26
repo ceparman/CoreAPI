@@ -6,6 +6,8 @@ Authors@R:
     person("Craig", "Parman", , "info@ngsanalytics.com", role = c("aut", "cre") 
       )
 Description: The package provides funtions for interacting with the Core API.
+URL: https://github.com/ceparman/CoreAPI
+BugReports: https://github.com/ceparman/CoreAPI/issues
 License: GPL-2 | GPL-3
 LazyData: TRUE
 Imports: httr,jsonlite
