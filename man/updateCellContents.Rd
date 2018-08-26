@@ -4,9 +4,9 @@
 \alias{updateCellContents}
 \title{updateCellContents -  Puts a cell lot in a container cell.}
 \usage{
-updateCellContents(coreApi, containerType, containerBarcode, containerCellNum,
-  sampleLotBarcode, amount, amountUnit, concentration, concentrationUnit,
-  useVerbose = FALSE)
+updateCellContents(coreApi, containerType, containerBarcode,
+  containerCellNum, sampleLotBarcode, amount, amountUnit, concentration,
+  concentrationUnit, useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}

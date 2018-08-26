@@ -4,8 +4,8 @@
 \alias{transferCellContents}
 \title{transferCellContents -  Transfers contents from one cell to another.}
 \usage{
-transferCellContents(coreApi, sourceCellID, destCellID, amount, concentration,
-  amountUnit, concentrationUnit, useVerbose = FALSE)
+transferCellContents(coreApi, sourceCellID, destCellID, amount,
+  concentration, amountUnit, concentrationUnit, useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}

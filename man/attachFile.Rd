@@ -4,8 +4,8 @@
 \alias{attachFile}
 \title{attachFile - Attaches a file to an entity or file attribute.}
 \usage{
-attachFile(coreApi, barcode, filename, filepath, targetAttributeName = "",
-  useVerbose = FALSE)
+attachFile(coreApi, barcode, filename, filepath,
+  targetAttributeName = "", useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}

@@ -4,10 +4,11 @@
 \alias{createExperimentSample}
 \title{createExperimentSample- Creates an experiment sample.}
 \usage{
-createExperimentSample(coreApi, entityType, sampleLotBarcode, experimentBarcode,
-  attributeValues = NULL, locationId = NULL, projectIds = NULL,
-  barcode = NULL, associations = NULL, concentration = NULL,
-  concentrationUnit = NULL, timeMin = NULL, useVerbose = FALSE)
+createExperimentSample(coreApi, entityType, sampleLotBarcode,
+  experimentBarcode, attributeValues = NULL, locationId = NULL,
+  projectIds = NULL, barcode = NULL, associations = NULL,
+  concentration = NULL, concentrationUnit = NULL, timeMin = NULL,
+  useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}

@@ -4,8 +4,8 @@
 \alias{apiPOST}
 \title{apiPOST - Do a POST to the Core ODATA REST API.}
 \usage{
-apiPOST(coreApi, resource = NULL, body = NULL, encode, headers = NULL,
-  special = NULL, useVerbose = FALSE)
+apiPOST(coreApi, resource = NULL, body = NULL, encode,
+  headers = NULL, special = NULL, useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}

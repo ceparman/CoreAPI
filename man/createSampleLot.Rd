@@ -4,9 +4,9 @@
 \alias{createSampleLot}
 \title{createSampleLot - Creates a lot of a sample.}
 \usage{
-createSampleLot(coreApi, entityType, sampleBarcode, attributeValues = NULL,
-  locationId = NULL, projectIds = NULL, barcode = NULL,
-  associations = NULL, useVerbose = FALSE)
+createSampleLot(coreApi, entityType, sampleBarcode,
+  attributeValues = NULL, locationId = NULL, projectIds = NULL,
+  barcode = NULL, associations = NULL, useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}

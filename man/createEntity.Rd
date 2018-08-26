@@ -4,9 +4,9 @@
 \alias{createEntity}
 \title{createEntity - Create a new instance of a entity.}
 \usage{
-createEntity(coreApi, entityType, attributeValues = NULL, locationId = NULL,
-  projectIds = NULL, barcode = NULL, associations = NULL,
-  useVerbose = FALSE)
+createEntity(coreApi, entityType, attributeValues = NULL,
+  locationId = NULL, projectIds = NULL, barcode = NULL,
+  associations = NULL, useVerbose = FALSE)
 }
 \arguments{
 \item{coreApi}{coreApi object with valid jsessionid}
